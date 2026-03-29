@@ -12,12 +12,101 @@ body {
     height: 100dvh;
   background-size: 10px 33px; /* Controls the size of the grid cells */
   background-image: 
-    linear-gradient(to right, var(--my-dark-colors) 1px, transparent 1px), /* Vertical lines */
-    linear-gradient(to bottom, var(--my-dark-colors) 1px, transparent 1px); /* Horizontal lines */
+    linear-gradient(to right, var(--my-dark-colors) 0.15rem, transparent 0.15rem), /* Vertical lines */
+    linear-gradient(to bottom, var(--my-dark-colors) 0.15rem, transparent 0.15rem); /* Horizontal lines */
     font-family: VT323;
     font-size: 1rem;
     overflow: hidden;
 }
+
+/* ============= > BLOG BASIC cssSLUGs < =================== */
+.blogBasic_container {
+    color: var(--my-fav-color);
+}
+
+p.blogBasic_content {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+h1.pageTitle {
+    font-size: 1.6rem;
+    font-family: "Sixtyfour";
+    text-transform: uppercase;
+    line-height: 1.6rem;
+}
+
+input, textarea, select {
+    padding: .4rem;
+    width: 55dwh;
+}
+
+input {
+    background: none;
+    border: none;
+    color: var(--my-fav-color);
+    font-family: VT323;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+textarea {
+    background: none;
+    border: none;
+    font-family: 'VT323';
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: var(--my-fav-color);
+    height: 17vh;
+}
+
+.blogBasic_formEl {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.blogBasic_formEl::before {
+    display: block;
+    position: absolute;
+    content: ">| ";
+    margin-top: .45rem;
+    margin-right: -20px;
+}
+
+button {
+    width: 13vh; 
+    height: 2rem; 
+    font-family: 'VT323'; 
+    background: none; 
+    border: 0.15rem none var(--my-fav-color); 
+    color: var(--my-fav-color);
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+button::after {
+    content: " >| ";
+    margin-right: -10px;
+}
+
+button:hover {
+    border: 0.15rem solid var(--my-fav-color);
+}
+
+input:focus {
+    stroke: 0.15rem solid var(--my-fav-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none; /* Removes the default browser outline */
+  border: none;
+}
+
 /* MAKE A concept of connection ======================================================= */
 .monitor-container {
     position: relative;
@@ -132,7 +221,7 @@ body {
 .iox_coreContainer {
     position: relative;
   display: flex; /* Aligns sidebar and content side-by-side */
-  min-height: 60vh; /* Ensures container takes full viewport height */
+  min-height: 52.5dvh; /* Ensures container takes full viewport height */
   border-top: solid 0.1rem var(--iox-core-ContainerBorderColor);
 }
 
