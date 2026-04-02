@@ -25,9 +25,10 @@ if (!is_dir($recordKeeper)) {
 
   // Create new post
   $newPost = [
+    "id" => time(),
     "gaia.UNIX" => time(), 
-    "gaia._IPHASH" => hash('sha256', $_SERVER['REMOTE_ADDR']),
     "ch.IMP_OIC" => bin2hex(random_bytes(3)),
+    "pv" => $_GET['pv'] ?? 'WATCHER',
     "ch.IMP_EPC" => $_POST['chIMP_EPC'],
     "ch.IMP_LIC" => date('\RY \E\Dm:\E\Tw:\E\Nd'),
     "ch.IMP_TP" => date('\Dg:\Ti:\Ns'),
