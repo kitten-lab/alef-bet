@@ -22,7 +22,9 @@ CHEERS -chester >|
     [4] CONFIG CALLS: **/  
         require_once 'config_nav.php';
         require_once 'config_logger.basic.php';
-        require_once 'config_mail.basic.php'; /**
+        require_once 'config_mail.basic.php'; 
+        require_once 'kde_config.php'; /**
+    
 
 -------------
 footnotes: 

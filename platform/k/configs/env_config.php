@@ -1,4 +1,5 @@
 <?php
+require_once 'auth_check.php';
 $ENV = 'local';
 date_default_timezone_set("America/New_York");
 

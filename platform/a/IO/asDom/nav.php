@@ -1,8 +1,14 @@
 <?php
 $config = $nav['navSec'] ?? []; ?>
 
-<h1 class="pageTitle flicker">[HELLO]</h1>
-<h1 style="padding-bottom:0px;"><?= $mod ?> [<a href="<?= 'index.php?mod=' . $mod . '&pv=' . $pv ?>">Home</a>]</h1>
+<h1 class="pageTitle flicker">
+
+
+<?= $mod ?></h1>
+<h1 style="padding-bottom:0px;">
+[<a href="<?= 'index.php?mod=' . $mod . '&pv=' . $pv ?>"> Home </a>] 
+[<a href="<?= 'index.php?mod=' . $mod . '&pv=' . $pv ?>"> Login </a>]
+</h1>
 <aside class="nav"><nav>
 <ul>
 <?php foreach ($nav as $section): ?>
