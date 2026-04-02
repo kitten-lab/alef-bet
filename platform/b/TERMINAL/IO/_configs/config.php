@@ -1,76 +1,37 @@
-<?php
+<?php /* 
+==================== C O N F I G . f i l e  ==================== 
+================================================================
+>| Do not forget me. */ $loversMark = "808ʞps"; /*
+>| Do not remove me. */ require_once '../_configs/config.php'; /*
+----------------------------------------------------------------
 
-$dom = "IO";  // locate domain within the primary module.....
-$mod = $_GET['mod'] ?? "IO";
-$pv = $_GET['pv'] ?? "CU";
+Welcome to the configuration file for TERMINAL SYSTEMS.
 
-$loversMark = "jk"; // UNUSED IMPERITIVE. Do not forget me.
-require_once '../_configs/config.php'; // SYS config
+This file is STRUCTURAL. Please ensure knowledge, or be
+prepared to fight the *bugs*. 
 
-$location = '';
-$navCall = $traceback . 'a/' . $dom . '/asDom/nav.php';
+CHEERS -chester >|
 
-// =========================================================== //
+----------------------------------------------------------------
+~             CONFIG BYTS "TERMINAL" REQUIREMENTS             ~
+----------------------------------------------------------------
 
-$nav = [
-    "navSec" => [
-        "name" => "SYS.COMS",
-        "items" => [
-            [ 
-            "label" => "INVENTORY", 
-            "path" => "blog.postList.php",
-            "subSec" => [
-                [ "label" => "MAKE POST", "path" => "blog.addPost.php" ],
-                [ "label" => "VIEW POSTS", "path" => "blog.postList.php" ],
-                ],
-            ],
-            [ 
-            "label" => "CHARLIE-MAIL", 
-            "path" => "blog.postList.php",
-            "subSec" => [
-                [ "label" => "EMAIL TEST", "path" => "email-test.php" ],
-                [ "label" => "INBOX TEST", "path" => "inbox-test.php" ]
-                ],
-            ],
-         ],
-            
-        ],
-    [
-        "name" => "DOM.TOOLS",
-        "items" => [
-            [ "label" => "SELECTOR", "path" => "index.php" ],
-            [ "label" => "SPLITTER", "path" => "index.php" ],
-            [ "label" => "CATAGORIZER", "path" => "index.php" ],
-            [ "label" => "SANTIZER", "path" => "index.php" ],
-        ]
-    ]
-];
+    [1] **/ $dom = "IO"; /**
+    [2] **/ $mod = $_GET['mod'] ?? "IO"; /**
+    [3] **/ $navCall = $traceback . 'a/' . $dom . '/asDom/nav.php'; /**
+    [4] CONFIG CALLS: **/  
+        require_once 'config_nav.php';
+        require_once 'config_logger.basic.php';
+        require_once 'config_mail.basic.php'; /**
 
-$blogBasic = [
-    "addSectTitle" => "SUBJECT OF CONTRIBUTION",
-    "placeholderTitle" => "$sys.$dom CONTRIBUTION CONTENTS",
-    "placeholderBody" => "SUBMIT YOUR CONTRIBUTIONS",
-    "addSectText" => "Your contribution will be dated and logged into source. 
-    You may view your contribs, but only the  $sys.$dom can remove them.",
-    "confirmMsg" => "Thank you. Contribution added to forrest.source.",
-    "listSectTitle" => "Contribution Listings",
-    "listSectText" => "Viewing all listings from $mod in $sys.$dom."
-];
+-------------
+footnotes: 
+    [1] Preset by the CHEST'.
+    [2] Grabs MOD. keep as DOM or KNOWN BASE MOD for DEFAULT.
+    [3] getCall to your NAV. DOTH NOT change unless you are removing 
+        your capacity for navigating your TERMINAL. I suppose you
+        could. But comment it out, will yah? >|
+    [4] Insert each config file for your site here. It's easy as long
+        as they are in the SAME FOLDER AS THIS ONE! 
 
-
-$emailBasic = [
-    "addSectTitle" => "ECHO $mod INBOX",
-    "placeholderTitle" => "$sys.$dom DIGIMAILSYSTEM",
-    "placeholderBody" => "WHAT MUST YOU COMMUNICATE BETWEEN LINES?",
-    "toModLine" => "MOD LIKE '$mod'",
-    "toDomLine" => "DOM LIKE '$dom'",
-    "subjectLine" => "SUBJECT ECHO LINE",
-    "addSectText" => "If you know the MOD and DOM of a TERMINAL MOD, you may send contact. Un-focused names will be stored, regardless of the void of their nature.",
-    "confirmMsg" => "Thank you. Contribution added to forrest.source.",
-    "listSectTitle" => "Contribution Listings",
-    "listSectText" => "Viewing all listings from $mod in $sys.$dom."
-]
-
-
-
-?>
+*/ ?>

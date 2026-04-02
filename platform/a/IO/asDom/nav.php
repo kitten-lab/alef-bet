@@ -1,7 +1,8 @@
-<?php $config = $nav['navSec'] ?? []; ?>
+<?php
+$config = $nav['navSec'] ?? []; ?>
 
 <h1 class="pageTitle flicker">[HELLO]</h1>
-<h1 style="padding-bottom:0px;"><?= $mod ?> [<a href="<?= $location . 'index.php?mod=' . $mod . '&pv=' . $pv ?>">Home</a>]</h1>
+<h1 style="padding-bottom:0px;"><?= $mod ?> [<a href="<?= 'index.php?mod=' . $mod . '&pv=' . $pv ?>">Home</a>]</h1>
 <aside class="nav"><nav>
 <ul>
 <?php foreach ($nav as $section): ?>
@@ -9,11 +10,11 @@
 <?php echo $section['name']; ?></p>
 <?php foreach ($section['items'] as $item): ?>
 <li>
-<a href="<?= $location . $item['path'] . '?mod=' . $mod . '&pv=' . $pv  ?>"><?= $item['label']; ?></a>
+<a href="<?= $item['path'] . '?mod=' . $mod . '&pv=' . $pv  ?>"><?= $item['label']; ?></a>
 </li>
 <?php foreach ($item['subSec'] as $subItem): ?>
 <li> 
-<a href="<?= $location . $subItem['path'] . '?mod=' . $mod . '&pv=' . $pv  ?>" class="navSubSec"><?= $subItem['label']; ?></a>
+<a href="<?= $subItem['path'] . '?mod=' . $mod . '&pv=' . $pv  ?>" class="navSubSec"><?= $subItem['label']; ?></a>
 </li>
 
 <?php endforeach; ?>
