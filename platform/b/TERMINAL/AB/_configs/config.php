@@ -3,8 +3,8 @@ $loversMark = "jk"; // UNUSED IMPERITIVE. Do not forget me.
 require_once '../_configs/config.php'; // SYS config
 
 $dom = "AB";  // locate domain within the primary module.....
-$mod = $_GET['mod'] ?? "NOT-NE1";
-$pv = $_GET['pv'] ?? "WATCHER";
+$mod = $_GET['mod'] ?? "AB";
+$pv = $_GET['pv'] ?? "CU";
 
 $location = '';
 
@@ -24,10 +24,30 @@ $blogBasic = [
     "listSectText" => "Viewing all listings from $mod in $sys.$dom."
 ];
 
+
 $nav = [
-    [ "label" => "HOME", "path" => "index.php" ],
-    [ "label" => "NEW POST", "path" => "blog.addPost.php" ],
-    [ "label" => "VIEW POSTS", "path" => "blog.postList.php" ]
+    "navSec" => [
+        "name" => "SYS.COMS",
+        "items" => [
+            [ 
+            "label" => "INVENTORY", 
+            "path" => "blog.postList.php",
+            "subSec" => [
+                [ "label" => "MAKE POST", "path" => "blog.addPost.php" ],
+                [ "label" => "VIEW POSTS", "path" => "blog.postList.php" ],
+                ],
+            ],
+            [ 
+            "label" => "CHARLIE-MAIL", 
+            "path" => "blog.postList.php",
+            "subSec" => [
+                [ "label" => "EMAIL TEST", "path" => "email-test.php" ],
+                [ "label" => "INBOX TEST", "path" => "inbox-test.php" ]
+                ],
+            ],
+         ],
+            
+        ]
 ];
 
 ?>

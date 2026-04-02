@@ -1,8 +1,8 @@
 <?php
 
 $dom = "IO";  // locate domain within the primary module.....
-$mod = $_GET['mod'] ?? "NOT-NE1";
-$pv = $_GET['pv'] ?? "WATCHER";
+$mod = $_GET['mod'] ?? "IO";
+$pv = $_GET['pv'] ?? "CU";
 
 $loversMark = "jk"; // UNUSED IMPERITIVE. Do not forget me.
 require_once '../_configs/config.php'; // SYS config
