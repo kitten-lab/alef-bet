@@ -8,7 +8,7 @@ require_once(__DIR__ . '/../../configs/env_config.php');
 
 if (!is_dir($dir)) {
     mkdir($dir, 0775, true);
-}
+}   
 
 if (!is_dir($recordKeeper)) {
     mkdir($recordKeeper, 0775, true);

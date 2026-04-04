@@ -10,8 +10,9 @@ $config = $nav['navSec'] ?? []; ?>
 <aside class="nav"><nav>
 <ul>
 <?php foreach ($nav as $section): ?>
-<p class="navSec">
-<?php echo $section['name']; ?></p>
+<BR>
+<span class="navSec">
+<?php echo $section['name']; ?></span>
 <?php foreach ($section['items'] as $item): ?>
 <li>
 <a href="<?= $item['path'] . '?mod=' . $mod . '&pv=' . $pv  ?>"><?= $item['label']; ?></a>

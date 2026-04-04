@@ -11,25 +11,25 @@ the system defaults will be appended. */
 $blogBasic = [
     "addSectTitle" =>/** 
     the Section Title
-    DISPLAY: **/ "obsidian:I:MP:O:RT",
+    DISPLAY: **/ "Skyline Public Recorder",
 
     "addSectText" =>  /** 
     the section text displayed below the header
-    DISPLAY: **/ "Your IMPORT contribution will be dated and logged into 
-    source. You may view your contribs, but only the $sys.$dom can 
-    remove them.",
+    DISPLAY: **/ "The SKYLINE May have eyes in every cell, but you
+    have your own eyes too. Do you have something to report? Consider
+    entering it below.",
 
     "placeholderTitle" =>  /** 
     the display text inside the subject
-    DISPLAY: **/ "$sys.$dom CONTRIBUTION CONTENTS",
+    DISPLAY: **/ "$sys TOPIC REPORT",
 
     "placeholderBody" =>  /** 
     the display text inside the body box
-    DISPLAY: **/ "SUBMIT YOUR CONTRIBUTIONS",
+    DISPLAY: **/ "BODY OF THE REPORT",
 
     "confirmMsg" =>  /** 
     the confirmation message after POST
-    DISPLAY: **/ "Thank you. Contribution added to forrest.source.",
+    DISPLAY: **/ "Your REPORT is OBSERVED.",
     
     "listSectTitle" =>  /** 
     the section title for the listing of posts

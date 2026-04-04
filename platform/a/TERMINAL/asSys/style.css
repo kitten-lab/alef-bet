@@ -10,12 +10,12 @@
 body {
     background-color: var(--my-dark-color);
     height: 98vh;
-  background-size: 1.8vh 1.4vh; /* Controls the size of the grid cells */
-  background-image: 
+    background-size: 1.8vh 1.4vh; /* Controls the size of the grid cells */
+    background-image: 
     linear-gradient(to right, var(--my-fav-colorInvis) 0.15rem, transparent 0.15rem), /* Vertical lines */
     linear-gradient(to bottom, var(--my-fav-colorInvis) 0.15rem, transparent 0.15rem); /* Horizontal lines */
     font-family: VT323;
-    font-size: 2vh;
+    font-size: 1.2rem;
     box-shadow: inset 0 0 30vh black;
     overflow: hidden;
     padding-top: 1vh;
@@ -68,12 +68,15 @@ h1 {
     font-weight: 200;
 }
 h1::after {
-content: " :)"
+content: "  ----";
 }
 
+p {
+    margin: .25vh;
+}
 
 h1::before {
-content: ">|"
+content: "---- ";
 }
 
 h1.pageTitle {
@@ -91,6 +94,11 @@ content: "-----------------";
 h1.pageTitle::before {
 content: "";
 }
+
+h2 {
+    font-size: 1.4rem;
+}
+
 h2.pageTitle {
     font-size: .8rem;
     font-family: "Sixtyfour";
@@ -363,14 +371,11 @@ input:focus, textarea:focus, select:focus {
   background-repeat: round; 
   background-size: 1rem  .2rem;  
   border-radius: .4vh;
-  overflow: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-p { padding: 0.01rem;}
-
-hr { rotate: -1deg;height: .12vh; outline: none; border-bottom: .1vh dashed var(--my-fav-color)}
-
-
+hr { rotate: -1deg;height: .02vh; outline: none; border-bottom: .1vh dashed var(--my-fav-color) }
 
 h3 {
     font-family: "Sixtyfour";
@@ -378,6 +383,8 @@ h3 {
     font-weight: 200;
     padding-left: .1vh;
 }
+
+/* OWL-0w0 */
 
 a {
     color: var(--my-fav-color);
@@ -387,29 +394,41 @@ a {
 .nav {
   position:fixed; /* Makes it stick when scrolling */
 display: inline-block;
+width: 23vh;
+letter-spacing: .1rem;
+}
+
+.navSec {
+    border-bottom: 1px solid var(--my-fav-color);
+}
+.navSec::before {
+    content: ".:";
+}
+.navSec::after {
+    content: ' :.';
 }
 
 a.navSubSec::before {
-    content: "  -> ";
+    content: "";
 }
+
 li {
-    list-style:  none;}
+    list-style:  none;
+    }
 
 
 li a {
     display: block;
-    border: 1px solid var(--my-dark-color);
+    border: none;
     width: 15vh;
-    padding: 1vh;
-    margin: 5px;
-    font-family: "Press Start 2P";
-    font-size: 1vh;
+    padding: 0.25vh;
+    font-size: 2vh;
     text-decoration: none;
     opacity: 0.7;
 }
-nav {padding: .5vh 1vh;}
+
 li a::before {
-    content: "* ";
+    content: "";
 }
 
 ul {
@@ -426,8 +445,7 @@ li a:hover {
 
 
 li a.navSubSec {
- font-size: .8vh;
-
+     font-size: .8vh;
     display: block;
     border: 1px none var(--my-dark-color);
     width: 15vh;

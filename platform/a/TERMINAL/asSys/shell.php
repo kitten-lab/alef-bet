@@ -3,6 +3,7 @@
  if (!empty($pageLogic) && file_exists($pageLogic)) {
     include $pageLogic; 
 }
+
 ?>
     <!DOCTYPE html>
     <html><head>
@@ -32,9 +33,16 @@
 <div class="broken_header">
 <h1 class="pageTitle"><?= $pageTitle ?></h1>
 </div>
-<?php if (!empty($pageSlug) && file_exists($pageSlug)) {
-    include $pageSlug; } 
-    
+<?php 
+    if (!empty($pageSlug) && file_exists($pageSlug)) {
+        if ($ext !== true) {
+            include $pageSlug;
+    }else {
+    $markdown = file_get_contents($pageSlug);
+    $Parsedown = new Parsedown();
+    echo $Parsedown->text($markdown); 
+    }
+    } 
     ?>
 
 
