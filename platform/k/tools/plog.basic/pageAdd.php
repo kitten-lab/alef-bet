@@ -1,5 +1,9 @@
 
-<?php $config = $plogBasic_add ?? []; ?>
+<?php $config = $plogBasic_add ?? []; 
+$sys = $GLOBALS['sys'];
+$dom = $GLOBALS['dom'];
+$mod = $GLOBALS['mod'];
+?>
 <form method="POST" action="">
 
     <input 
@@ -17,26 +21,9 @@
     </textarea>
     <br>
 
-  <input 
-    type='hidden' 
-    name='betSys' 
-    value='<?php echo "$sys";?>'
-    /> 
-  <input 
-    type='hidden' 
-    name='betSys' 
-    value='<?php echo "$sys";?>'
-    /> 
-  <input 
-    type='hidden' 
-    name='betDom' 
-    value='<?php echo "$dom";?>'
-  /> 
-  <input 
-    type='hidden' 
-    name='betMod' 
-    value='<?php echo "$mod";?>'
-  /> 
+  <input type='hidden' name='betSys' value='<?= $sys; ?>''/> 
+  <input type='hidden' name='betDom' value='<?= $dom; ?>''/> 
+  <input type='hidden' name='betMod' value='<?= $mod; ?>'/> 
 
   <button 
     type="submit"

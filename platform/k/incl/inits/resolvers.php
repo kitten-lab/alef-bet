@@ -9,22 +9,4 @@ function resolveShell($sys) {
     }
 // ----------------------------------------------------------------
 
-function getTool($tool, $function) {
-
-    // STYLE → goes to HEAD
-    $GLOBALS['GETS']['actor'][] = function() use ($tool, $function) {
-        loadTool($tool, "actor", $function);
-    };
-
-    // ACT → goes to TOP
-    $GLOBALS['GETS']['dressing'][] = function() use ($tool) {
-        loadTool_Style($tool);
-    };
-
-    // PAGE → goes to BODY
-    $GLOBALS['GETS']['set'][] = function() use ($tool, $function) {
-        loadTool($tool, "page", $function);
-    };
-
-}
 ?>

@@ -1,9 +1,9 @@
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
   $chestUID = 'cUID-' . strtoupper(bin2hex(random_bytes(7)));
   $ms = round(microtime(true) * 1000);
-  $dir =  $sonar . 'd/plog.basic/' . $_POST['betSys'] . '/' . $_POST['betDom'];
+  $dir =  $GLOBALS['sonar'] . 'd/plog.basic/' . $_POST['betSys'] . '/' . $_POST['betDom'];
 
     if (!is_dir($dir)) { mkdir($dir, 0775, true); }   
 
@@ -50,13 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $tpss = json_decode($json, true);
   $hash = hash('sha256', $_SERVER['REMOTE_ADDR']);
 
-  function kdeCHECK($hash) {
-    if ($hash == "12ca17b49af2289436f303e0166030a21e525d266e209267433801a8fd4071a0") 
-    { return "KDE CLEARED"; } 
-    else 
-    { return "KDE! KDE!"; }
-  };
-
   $betSYS = $_POST['betSys'];
   $betDOM = $_POST['betDom'];
   $betMOD = $_POST['betMod'];
@@ -89,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "tps.gaiaUNIX" => time(),
             "acting.VIEWPORT" => $_GET['pv'] ?? '__UNDISCLOSED__',
             "acting.TOOL" => $reportHEAD,
-            "kde.CHKR" => kdeCHECK($hash),
         ]
     
     ];

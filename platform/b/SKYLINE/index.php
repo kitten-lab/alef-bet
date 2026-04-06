@@ -1,25 +1,22 @@
 <?php 
-// "Alice through the looking glass" //
 require_once '_configs/clrRoutes.php';
 require_once '_configs/asSelf_config.php';
+openSky("This is the Title of Your Page!");
 
-$pageTitle = "THE SKYLINE ON-INTERA";
-h1("This is the SKYLITE");
+bigHeading("Welcome to SKYLINE On INTERA.");
 
-words($left, "Lets make this somehow meaningful. We will type words about 
-Greenland and Wyoming and some place in Sauce a Leeto, which might house 
-onions.", $colorize("darkblue"));
+leaf("Thank you for entering our sight. We see you. 
+$BR We feel you. We know you.
+$BR wait");
 
-h2("This is the SKYLITE");
+medHeading("Consider submitting a vision report.
+We see what you see. Let us know.");
 
-words($center, "Hello World and welcome to the first run of SKYlite, a new 
-simple way to write basic pages!", $colorize("orange"));
+getTool('plog.basic', 'List');
+getTool('plog.basic', 'Add');
 
-getTool("plog.basic","Add");
 
-h1("More titles!");
-
-getImg("main.png");
+closeSky();
 
 require resolveShell($sys);
 ?>

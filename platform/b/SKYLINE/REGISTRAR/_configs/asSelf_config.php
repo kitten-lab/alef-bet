@@ -31,4 +31,6 @@ footnotes:
     [4] Insert each config file for your site here. It's easy as long
         as they are in the SAME FOLDER AS THIS ONE! 
 
-*/ ?>
+*/ 
+
+?>

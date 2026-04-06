@@ -1,5 +1,6 @@
 <?php
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $chestUID = 'cUID-' . strtoupper(bin2hex(random_bytes(7)));
   $ms = round(microtime(true) * 1000);

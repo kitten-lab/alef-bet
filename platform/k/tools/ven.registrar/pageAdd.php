@@ -1,5 +1,10 @@
 
-<?php $config = $venRegistrar ?? []; ?>
+<?php $config = $venRegistrar ?? []; 
+
+$sys = $GLOBALS['sys'];
+$dom = $GLOBALS['dom'];
+$mod = $GLOBALS['mod'];
+?>
 
 <div class="venRegistrar_commonBox">
 <form method="POST" action="">
@@ -28,9 +33,9 @@
 <input name="scrubName" placeholder="True names used in logs(scrub later)" size="40"><br>
 <textarea name="registryNote" placeholder="Notes for forest.source (if applicable)" size="40" cols="53" rows="5"></textarea>
     <br>
-  <input type='hidden' name='betSys' value='<?php echo "$sys";?>'/> 
-  <input type='hidden' name='betDom' value='<?php echo "$dom";?>'/> 
-  <input type='hidden' name='betMod' value='<?php echo "$mod";?>'/> 
+  <input type='hidden' name='betSys' value='$sys'/> 
+  <input type='hidden' name='betDom' value='$dom'/> 
+  <input type='hidden' name='betMod' value='$mod'/> 
   <button type="submit">Send to source</button> 
 </div>
 <span class="venRegistrar_confirmMsg">

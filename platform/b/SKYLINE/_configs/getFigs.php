@@ -1,6 +1,5 @@
 <?php
     require_once $sonar . $kinit . "callImages.php";
-    require_once $sonar . $kinit . "callTool.php"; 
     require_once $sonar . $kinit . "callSky.php"; 
     include 'figs/fig-logBasic.php';
     

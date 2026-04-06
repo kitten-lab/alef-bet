@@ -1,15 +1,26 @@
-<?php $config = $plogBasic_list ?? []; 
-$link = $config['Page_Link'] ?? 'view'; ?>
+<?php $config = $plogBasic_list ?? [];  
 
-<div class="plogBasic_commonBox">
-<h1><?= $config['Title'] ?? 'Viewing all listings.'; ?></h1>
-<p class="plogBasic_content">
-<?= $config['Content'] ?? 'Viewing all listings.'; ?>
-</p>
+$sys = $GLOBALS['sys'];
+$dom = $GLOBALS['dom'];
+$mod = $GLOBALS['mod'];
+$sonar = $GLOBALS['sonar'];
+$path = $sonar . 'd/plog.basic/' . $sys . '/' . $dom . '/data.json';
+$logs = json_decode(file_get_contents($path), true);
+
+if (!$logs) {
+  $logs = [];
+}
+
+$cUID = array_keys($logs);
+$cUID = $cUID[0];
+$filtered = array_filter($logs, function($log) use ($mod) {
+    return ($log['meta.DATA']['acting.DOLLY']) == $mod;
+});
+?>
+
 
 <?php 
-$filtered = array_reverse($logs);
-foreach ($filtered as $log) {
+foreach ($logs as $log) {
   echo "<span class='plogBasic_listItem'><a
   href='" . $link . ".php?go={$cUID}&mod=$mod&pv=$pv'>";
   echo $log['log.leafTopic'] . "</a> ";

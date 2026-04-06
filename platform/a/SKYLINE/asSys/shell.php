@@ -1,6 +1,6 @@
 
 <?php foreach ($GLOBALS['GETS']['actor'] as $fn) {
-    $fn();
+    echo $fn();
 } ?>
 <!-- .... DEAR INFINITE POTENTIAL, HOLY DOCTYPE... -->
 <!DOCTYPE html>
@@ -8,10 +8,10 @@
 
 <?php 
 foreach ($GLOBALS['GETS']['dressing'] as $fn) {
-    $fn();
+    echo $fn();
 } ?>
 <?php getMy_Styles(); ?>
-<title><?= $pageTitle ?></title>
+<title><?= $GLOBALS['pageTitle'] ?></title>
 
 </head>
 <!-- END OPENING PRAYERS -->
@@ -22,7 +22,7 @@ foreach ($GLOBALS['GETS']['dressing'] as $fn) {
 <main>
 
 <?php foreach ($GLOBALS['GETS']['set'] as $fn) {
-    $fn();
+    echo $fn();
 } ?>
 </main>
 
