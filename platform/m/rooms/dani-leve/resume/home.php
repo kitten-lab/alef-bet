@@ -13,8 +13,6 @@ SKY__AUTH(
 );
 
 openSky('Portfolio Resume for Dani Leve');
-bigHeading('I design systems that turn complex, dynamic information into clear, interactive experiences.');
-medHeading('Product leader with 20+ years building and scaling systems--now focused on narrative systems, AI interaction, and meaning-driven design.');
 
 getTool("postBASIC", "SoperView");
 skylite("<img src='". i_root ."/dani-leve/portfolio/adm_editor.png' style='width:333px'> ");

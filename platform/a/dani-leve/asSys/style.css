@@ -17,10 +17,12 @@
 
 .theme-tiles_casework {
     --link: rgb(248, 81, 81);
+    --specialBackgroundColor: rgb(26, 17, 17);
 }
 
 .theme-silo_terminalprolog {
     --link: rgb(138, 170, 145);
+    --specialBackgroundColor: rgb(22, 30, 22);
 }
 body {
     background: var(--backgroundColor);
@@ -31,12 +33,17 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 5px 0;
+    margin: 10px 0;
     font-family: var(--header-family);
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+}
+
+h2 {
+    margin: 15px 0 10px;
+    font-size: 2rem;
 }
 
 a {
@@ -45,7 +52,7 @@ a {
 }
 
 a:hover {
-    color: blue;
+    color: var(--link);
 }
 main {
     margin: 0.5rem;
@@ -56,6 +63,7 @@ main {
 .NAVIGATION {
     display: flex;
     flex-direction: column;
+    text-transform: uppercase;
 }
 
 .MAIN {
@@ -87,28 +95,24 @@ p {
 }
 
 header {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: .5rem;
-    height: 1.5rem;
-    background-color: var(--accentColor-dark);
-  border-bottom: 1px solid var(--accentColor-light2);
-    width: 100%;
+    padding: 10px;
     text-align: left;
+    background-color: var(--specialBackgroundColor);
+}  
+
+header h1 {
+    font-size: 4rem;
+} 
+
+header pre {
+    font-size: .55rem;
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 30px; 
+    opacity: .8;
 }
 
-nav h2 {
-    font-weight: 300;
-    letter-spacing: .5rem;
-    font-size: 2rem;
-    color: var(--accentColor-light);
-}
-
-nav h4 {
-    letter-spacing: 1rem;
-}
 footer {
     font-size: .5rem;
     padding: .7rem;
@@ -123,28 +127,37 @@ footer {
 }
 
 nav {
-    position: relative;
-    left: 0;
-    right: 0;
-    letter-spacing: .2rem;
-    font-size: .6rem;
+    font-size: 1rem;
+    display: flex;
+  justify-content: space-between; /* Pushes logo and links to opposite sides */
+  align-items: center;           /* Centers items vertically */
+  padding: .5rem .5rem;
+  background-color: #333;
+  color: white;
 }
 
 nav ul {
   list-style-type: none; /* Removes bullet points */
-  margin: 0;
-  padding: 0;
+  display: flex;                 /* Makes the list items horizontal */
+  list-style: none;
+  gap: 20px; 
+}
+
+
+
+nav li a {
+    font-family: var(--header-family);
+   text-decoration: none;
+    color: white;
 }
 
 nav li a::before {
-    content: "- ";
+    content: " [ ";
+  color: var(--link);
 }
-
-
-nav li {
-  text-decoration: none; /* Removes link underline */
-  display: block;        /* Makes the entire area clickable */
-  padding: 12px;
+nav li a::after {
+    content: " ] ";
+  color: var(--link);
 }
 
 .soper_frag {
@@ -188,4 +201,40 @@ button {
     border: 0;
     padding: 10px;
     margin: 6px 0;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--accentColor-light2);
+}
+
+.reels::before {
+    background-color: #5d5d5d;
+    padding: 10px;
+    content: "KDE SYNTH";
+    font-weight: 800;
+    font-family: var(--header-family);
+    position: relative;
+    text-shadow: 2px 2px 0 #333;
+    height: 15px;
+    color: #a0a0a0;
+    box-shadow: 
+    -2px -2px #6d6d6d,
+    2px 2px #545454
+    ;
+    margin: 4px;
+    margin-right: 10px;
+}
+.reels {
+    border: 5px outset gray;
+    padding: 10px;
+    box-shadow: 2px 0px 0 rgb(41, 41, 41), inset -2px -2px 0 rgb(66, 66, 66);
+    background-color: #5d5d5d;
+}
+
+
+.buttons {
+    text-align: right;
+    padding-right: 20px;
 }

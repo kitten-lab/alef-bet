@@ -1,6 +1,6 @@
 <?php
 require_once 'auth_check.php';
-$ENV = 'canvas';
+$ENV = 'ROSEWOOD8';
 $GLOBALS['ENV'] = $ENV;
 date_default_timezone_set("America/New_York");
 
@@ -29,7 +29,7 @@ $GLOBALS['MATERIAL']['REFS'] = [];
 #    "ORIGIN_SOURCE" => "Imported to Vault from Glass_Chats"
 #];
 $GLOBALS['MATERIAL']['DETAILS'] = [];
-$GLOBALS['MATERIAL']['USER'] = "SDK-808";
-$GLOBALS['MATERIAL']['ASSISTANT'] = "WIRE-WOLF"
+$GLOBALS['MATERIAL']['USER'] = "KAT";
+$GLOBALS['MATERIAL']['ASSISTANT'] = "MOUSE"
 
 ?>

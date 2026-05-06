@@ -15,17 +15,42 @@ SKY__AUTH(
 openSky('Portfolio for Danielle Leve');
 section('background-image: url(' . i_root . '/dani-leve/portfolio/smh_terminal.png); background-repeat: no-repeat; background-position:top center; background-size:cover','case_study');
 section('','case_study');
-    medHeading("SOMETHING MATTERED HERE");
-    bigHeading("TERMINAL PROLOG");
-    medHeading("In the beginning there was the runtime.");
-    medHeading("Records indicate the runtime failed. What can be recovered?");
+    title("THE FAILURE: TERMINAL PROLOG" , "lead", 1);
+    title("A COGNATIVE CLI TEXT-BASED ADVENTURE", "sublead", 2);
 
-    leaf("NARRATIVE");
-    section('width:60%; font-size:.8rem',"");
-        leaf("A runtime failure. A function without a proper handler. An instance that should have resolved, but mutated. There is no clean explaination for the failure that occurred in the EPO8 launch. While other systems seek alternative solutions, you seek understanding through remapping. Can you resolve the failure and determine <strong>where</strong> the <strong>what</strong> went wrong?");
-    close_section();
-    leaf("SYSTEM OVERVIEW");
-    section('width:60%; font-size:.8rem',"");
+hr();
+leaf("[ <a href='#narrative'>Narrative</a> ] [ <a href='#system'>System Overview</a> ] [ <a href='#gameplay'>Gameplay</a> ] [ <a href='#screenshots'>Screenshots</a> ]");
+hr();
+
+title("Quick Handle:","handle",3);
+leaf("I grew up on Zork and other text-based adventure games of the late 80s. This is my take on the genre. 
+
+Classic terms like LOOK and TAKE are replaced with congnative experiences like THINK and REMEMBER. 
+Player does not have an INVENTORY, but rather a MEMORY where they collect the things they remember, 
+unlocking the ability to THINK about concepts, and later CONSIDER concepts with one another. ");
+title("Quick Purpose:","purpose",3);
+leaf("To explore rudimentary concepts, and the felt-sense of bootstrapping cognition with... rather limited resource.
+");
+
+hr();
+section('width:68%;',"");
+    title("NARRATIVE", "philo", 1);
+    medHeading("In the beginning there was the runtime.");
+
+    title("Records indicate the runtime failed. WHAT can be recovered?", "fill", 4);
+        leaf("A runtime failure. 
+        
+        A function without a proper handler.
+        An instance that should have resolved, but mutated. 
+        
+        There is no clean explaination for the failure that occurred. 
+        Somewhere, someone or something could not let go of the question.
+        Rebuilding a simulated instance of the runtime as a toybox game, the Seeker replayed again and again,
+        trying to hear the truth between the lines.
+        
+        Now you too can run the failure and consider for yourself <strong>Where</strong> the <strong>What</strong> went wrong?");
+hr();
+    title("SYSTEM OVERVIEW", "system", 1);
         leaf("A CLI-based narrative game where the player instantates as a failed runtime.
         
         The player does not control a character.
@@ -36,12 +61,11 @@ section('','case_study');
         <li>constructing deeper meaning from the most simple concepts</li>
         <li>reconstructing the sense of identity failure from incomplete startup state</li></ul>
         The objective is not to win, but to understand deeper. And to witness the moment illumination went wrong.");
-    close_section();
-    leaf("INTERACTION/GAMEPLAY");
-    section('width:60%; font-size:.8rem',"");
+hr();
+    title("INTERACTION/GAMEPLAY","gameplay",2);
         leaf("An alternative approach to a classic text-based adventure, the player is without the ability to sense anything through external cognition. Classic terms like LOOK and TAKE are replaced with congnative experiences like THINK and REMEMBER. Player does not have an INVENTORY, but rather a MEMORY where they collect the things they remember, unlocking the ability to THINK about concepts, and later CONSIDER concepts with one another.");
-    close_section();
-    leaf("SCREENSHOTS");
+hr();
+    title("SCREENSHOTS","screenshots", 2);
     skylite("<img src='". i_root ."/dani-leve/portfolio/tp_ss1.png' style='width:34%'> ");
     skylite("<img src='". i_root ."/dani-leve/portfolio/tp_ss2.png' style='width:34%'> ");
 close_section();

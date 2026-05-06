@@ -8,6 +8,7 @@ $SITE = $GLOBALS['SITE'];
 <!-- .... DEAR INFINITE POTENTIAL, HOLY DOCTYPE... -->
 <!DOCTYPE html>
 <html><head>
+<?php include 'header.php'; ?>
 
 <?php 
 foreach ($GLOBALS['GETS']['dressing'] as $fn) {
@@ -23,14 +24,6 @@ foreach ($GLOBALS['GETS']['dressing'] as $fn) {
 
 <main>
 
-<div class="NAVIGATION">
-<?php 
-if (!empty($GETS__SITE['sideNav']) 
-    && file_exists($GETS__SITE['sideNav'])) {
-  require $GETS__SITE['sideNav']; 
-  } 
-?>
-</div>
 <div class="MAIN">
 
 <?php foreach ($GLOBALS['GETS']['set'] as $fn) {

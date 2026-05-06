@@ -1,5 +1,7 @@
 <?php $SITE = $GLOBALS['SITE'];
 
+require_once $GLOBALS['INTERA']['TOOLS'] . 'parsedown/Parsedown.php'; 
+
 require_once __DIR__ . '/-SIG-postBASIC.php'; // ASSISTANT SETTINGS
 require_once __DIR__ . '/-CRATE-postBASIC.php'; // CRATE FILLER SETTINGS
 
@@ -14,15 +16,26 @@ $FIG = getFIG("postBasic", "ViewList");
 
 
 
-$SHADOW_PROD_TOGGLE = SHADOW_PROD_ENV(false);
+$SHADOW_PROD_TOGGLE = $sha_env;
 $router_1 = ROUTE('d', $SHADOW_PROD_TOGGLE);
 
-$route = $router_1 . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
+$route = $router_1 . $GLOBALS[$SITE]['URI'] . '/';
     $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.post.json';    
   
 
 if(file_exists($CHEST)) {
-$CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
+$TRUNK = json_decode(file_get_contents($CHEST), true);
+
+$PAGE = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($PAGE < 1) $PAGE = 1;
+
+$perPAGE = 3;
+$total = count($TRUNK);
+$totalPAGES = ceil($total / $perPAGE);
+
+$offset = ($PAGE - 1) * $perPAGE;
+$CHEST_THINGS = array_slice($TRUNK, $offset, $perPAGE);
+
 usort($CHEST_THINGS, function($a, $b) {
     return $b['tps']['event_unix'] <=> $a['tps']['event_unix'];
 });
@@ -39,12 +52,23 @@ foreach ($CHEST_THINGS as $TIMBER => $contents) {
   echo "<pre>";
   echo "<a href='?w=" . $GLOBALS[$SITE]['ROOM_SLUG'] . '&id=' . $unix . "'>read more</a>";
   echo "<br>";
-  echo "posted by " . $contents['import_env']['mod_slug'];
+  echo "posted by " . substr($contents['payload']['post']['agent'], 4);
   echo "</pre>";
   echo "<hr>";
   echo "</div>";
 }
-}else { 
+
+
+    if ($PAGE > 1) {
+        echo '<a href="#&page=' . ($PAGE - 1) . '">Prev</a>';
+    }
+    if ($PAGE < $totalPAGES) {
+        echo '<a href="?&page=' . ($PAGE + 1) . '">Next</a>';
+    }
+
+} else { 
     echo "No fragments found."; 
     }
+
+
 ?>

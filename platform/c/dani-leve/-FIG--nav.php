@@ -24,43 +24,60 @@ $nav = [ "navSec" =>
 
     [ 
         "DOM" => "portfolio", 
-        "BUILDING" => "portfolio home", //nav label
+        "BUILDING" => "SYS", //nav label
         "PRIME_KEY" => "home", 
         "ROOMS" => [
 
             [ 
-                "KEY" => "silo: my pocket internet",  //nav label
-                "ROOM" => "silo_mypi",  // key_name
+                "KEY" => "my pocket 'net",  //nav label
+                "ROOM" => "home",  // key_name
             ],[ 
-                "KEY" => "tiles: narrative loops",  //nav label
+                "KEY" => "khaos detective engine",  //nav label
                 "ROOM" => "tiles_Casework",  // key_name
             ],[ 
-                "KEY" => "smh: terminal prolog",  //nav label
+                "KEY" => "terminal prolog cli",  //nav label
                 "ROOM" => "smh_terminalprolog",  // key_name
-            ],[ 
-                "KEY" => "smh: the forgetting house",  //nav label
-                "ROOM" => "smh_forgettinghouse",  // key_name
             ],
+            [ 
+                "KEY" => "something mattered here",  //nav label
+                "ROOM" => "smh_forgettinghouse",  // key_name
+            ]
     /* SECTION GROUP -------------------------------- */
     ]],[ 
         "DOM" => "resume", 
-        "BUILDING" => "resume", 
+        "BUILDING" => "DOM", 
         "PRIME_KEY" => "home", 
         "ROOMS" => [
 
             [ 
-                "KEY" => "overview", 
+                "KEY" => "resume", 
                 "ROOM" => "home", 
             ],
 
             [ 
-                "KEY" => "experience",  //nav label
+                "KEY" => "work experience",  //nav label
                 "ROOM" => "experience",  // key_name
             ],
 
             [ 
-                "KEY" => "system",  //nav label
+                "KEY" => "case studies",  //nav label
                 "ROOM" => "system",  // key_name
+            ],
+    /* SECTION GROUP -------------------------------- */
+    ]],[ 
+        "DOM" => "about", 
+        "BUILDING" => "MOD", 
+        "PRIME_KEY" => "me", 
+        "ROOMS" => [
+
+            [ 
+                "KEY" => "about", 
+                "ROOM" => "about", 
+            ],
+
+            [ 
+                "KEY" => "contact",  //nav label
+                "ROOM" => "contact",  // key_name
             ],
     /* SECTION GROUP -------------------------------- */
     ]],

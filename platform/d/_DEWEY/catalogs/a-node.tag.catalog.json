@@ -1,10 +1,10 @@
 {
-    "count": 323,
+    "count": 375,
     "a-node": {
         "sopr": 27,
         "symbolcraft": 32,
         "betsoft": 64,
-        "omen": 12,
+        "omen": 17,
         "symbol": 2,
         "questions": 1,
         "games": 25,
@@ -26,6 +26,8 @@
         "projects": 1,
         "crate": 4,
         "systems": 3,
-        "glitch-slip": 3
+        "glitch-slip": 3,
+        "media": 4,
+        "mythleak": 43
     }
 }

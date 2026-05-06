@@ -7,7 +7,7 @@ SKY__AUTH(
     /*DOM_DISPLAY*/  "THE JUICE LINE",
 
     /*ROOM_SLUG*/    "HEADLINES", 
-    /*ROOM_DISPLAY*/  "WHAT'S THE DIRT?",
+    /*ROOM_DISPLAY*/  "HEADLINES",
 
     /*ROOM_FLAVOR*/  "skyline-standard"
 );
@@ -20,12 +20,10 @@ section('', "section_container");
         getTool("postBASIC", "Headerlines");
     close_section();
     section('','content');
-        leaf("HEY MOUSE. MAKE A POST. FILL'ER UP.");
-        getTool("postBASIC", "SoperView");
     close_section();
     section('', "ads");
         bigHeading($GLOBALS[$SITE]['ROOM_DISPLAY']);
-        getTool("postBASIC", "MakePost");
+        getTool("postBASIC", "charliePOST");
     close_section();
 close_section();
 closeSky();

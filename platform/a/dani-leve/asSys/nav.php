@@ -3,13 +3,7 @@ $nav = $GLOBALS['nav'];
 $config = $GLOBALS['nav']['navSec'] ?? []; 
 $SKY_AUTH = $GLOBALS[$SITE]; ?>
 <aside class="nav">
-<nav>
-<DIV class="main_nav"><ul>
-<div class="ROOM_ID">
-<h4>concepts of</h4>
-<h2>DANIELLE LEVE</h2>
-
-
+<nav><ul>
 <?php foreach ($nav as $section): ?>
 
 <?php 
@@ -22,9 +16,6 @@ echo $item['KEY'] . "</a></li>";
 
 endforeach; ?>
 </div>
-
-
-</DIV>
 </ul>
 
 </nav></aside>

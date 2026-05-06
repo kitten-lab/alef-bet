@@ -1,5 +1,5 @@
 {
-    "count": 286,
+    "count": 375,
     "b-node": {
         "bbc": 14,
         "bbc-gdd": 7,
@@ -20,7 +20,7 @@
         "threats": 6,
         "goals": 5,
         "suggested-goals": 7,
-        "animal": 3,
+        "animal": 5,
         "who": 1,
         "slots": 25,
         "detective-case_work": 41,
@@ -36,16 +36,28 @@
         "environment": 9,
         "nim": 4,
         "purpose": 4,
-        "thoughts": 2,
+        "thoughts": 3,
         "fears": 2,
         "materials": 13,
         "checkin": 2,
         "jason": 3,
         "coa": 3,
-        "numbers": 4,
+        "numbers": 16,
         "messages": 2,
-        "mentions": 1,
+        "mentions": 37,
         "daily-inventory": 3,
-        "signs": 1
+        "signs": 3,
+        "listening-to": 1,
+        "set-up": 2,
+        "hymn": 6,
+        "archetype": 3,
+        "letter-board": 1,
+        "relates-to": 5,
+        "letter-boards": 3,
+        "dorn": 2,
+        "thorn": 1,
+        "animusanima": 1,
+        "news": 4,
+        "articles": 7
     }
 }

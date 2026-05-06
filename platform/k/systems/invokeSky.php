@@ -35,9 +35,9 @@ function bigHeading($text){
     }
 
 
-function title($text){
+function title($text,$id,$hscale){
     $text = htmlspecialchars($text);
-    skylite("<h1>$text</h1>");
+    skylite("<h$hscale id='$id'>$text</h$hscale>");
     }
 
 function hr(){
