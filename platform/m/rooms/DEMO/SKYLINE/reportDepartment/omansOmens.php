@@ -1,0 +1,25 @@
+<?php 
+openSky("REPORT A HYMN");
+SKY__AUTH(
+    /*MOD_SLUG*/     "RECORDER",
+    /*MOD_DISPLAY*/  "OMAN O'MENTE", 
+    
+    /*DOM_SLUG*/     "reportDepartment", 
+    /*DOM_DISPLAY*/  "REPORTING DEPARTMENT",
+
+    /*ROOM_SLUG*/    "omansOmens", 
+    /*MOD_DISPLAY*/  "OMAN'S OMENS",
+
+    /*ROOM_FLAVOR*/  "skyline-standard"
+);
+
+bigHeading("OM. Please record an omen.");
+leaf("Where does your attention go? Any time your attention is captured at a higher intensity, this is known as an OMEN. An OMEN may be a sign, a symbol, an event, a recurring pattern. The only requirement for a qualifying OMEN is whether or not your attention was pulled to it hard enough that you'd consider recording it here.");
+hr();
+
+
+getTool("reportBASIC", "ListReports");
+hr();
+
+getTool("reportBASIC", "DEMOIntakeReport");
+closeSky();

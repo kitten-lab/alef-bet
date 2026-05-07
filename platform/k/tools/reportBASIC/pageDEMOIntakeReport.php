@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/-SIG-reportBASIC.php'; // ASSISTANT SETTINGS
 $FIG = getFIG("reportBASIC", "IntakeReport"); 
-$user = 'MRA-' . $FIG['user'];
-$assistant = 'ADM-' . $FIG['assistant'];
+$user = 'DEMO-' . $GLOBALS['DEMO']['USER'];
+$assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
 
 ?>
 
@@ -38,12 +38,14 @@ $assistant = 'ADM-' . $FIG['assistant'];
     required></textarea>
     <br>
 </span>
+<span class="">
     <label for="POST__TAGS"><?= $FIG['Tags']; ?></label><br>
     <textarea 
     rows="5" cols="30"
     name="POST__TAGS" id="tag-input" placeholder="type your thread..." /></textarea>
-
-
+</span>
+<br>
+<br>
 <span class="">
     <label for="POST__EVENT_UNIX"><?= $FIG['UNIX']; ?></label><br>
     <input 
@@ -66,13 +68,14 @@ $assistant = 'ADM-' . $FIG['assistant'];
 </div>
 </span>
 
+<span class="">
   <input type="hidden" name="POST__TZ" id="tz-input">
 
   <button type="submit">
     <?= $FIG['Submit_Button'] ?? 'Submit'; ?>
   </button> 
   <button type="reset">Reset Form</button>
-
+</span>
 
   <span>
 
@@ -89,6 +92,6 @@ $assistant = 'ADM-' . $FIG['assistant'];
 </script>
 <?php 
 $scripts = (string)$GLOBALS['INTERA']['SYSTEM'];
-include $scripts . 'NIM/getTAGGED.php';
-include $scripts . 'NIM/localSTORE.php';
+include $scripts . 'NIM/DEMOgetTAGGED.php';
+include $scripts . 'NIM/DEMOlocalSTORE.php';
 ?>

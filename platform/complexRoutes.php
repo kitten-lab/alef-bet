@@ -22,7 +22,8 @@ $SYS = $GLOBALS[$SITE]['SYS_SLUG'];
 $URI = $GLOBALS[$SITE]['URI'];
 
 $GLOBALS['ROUTE']['B']['URI'] = $SONAR . "b/" . $URI . '/';
-$GLOBALS['ROUTE']['A'][$SITE] = $SONAR . "a/" . $SYS . '/';
-$GLOBALS['ROUTE']['C'][$SITE] = $SONAR . "c/" . $SYS . '/';
+$GLOBALS['ROUTE']['A'][$SYS] = $SONAR . "a/" . $SYS . '/';
+$GLOBALS['ROUTE']['C'][$URI] = $SONAR . "c/" . $URI . '/';
+$GLOBALS['ROUTE']['C'][$SYS] = $SONAR . "c/" . $SYS . '/';
 $GLOBALS['ROUTE']['M']['URI'] = $SONAR . "m/rooms/" . $URI . '/';
 ?>

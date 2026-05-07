@@ -1,16 +1,26 @@
 <?php $SITE = $GLOBALS['SITE'];
-require_once $GLOBALS['INTERA']['TOOLS'] . 'skyGenesis/functions.php'; //GET SHADOW PROD TOGGLE
-require_once __DIR__ . '/-SIG-reportBASIC.php'; //GET SHADOW PROD TOGGLE
-require_once __DIR__ . '/-CRATE-reportBASIC.php'; //GET SHADOW PROD TOGGLE
+require_once $GLOBALS['INTERA']['TOOLS'] . 'parsedown/Parsedown.php'; 
 
-$FIG = getFIG("reportBASIC", "IntakeReport"); 
+require_once __DIR__ . '/-SIG-reportBASIC.php'; // ASSISTANT SETTINGS
+require_once __DIR__ . '/-CRATE-reportBASIC.php'; // CRATE FILLER SETTINGS
+
+require_once $GLOBALS['INTERA']['SYSTEM'] . 'shadowENVO.php';
+    $IS_IT = $GLOBALS['TOOL']['SHADOWENVO'];
+        $sha_env = shadowENVO($IS_IT);
+            if ($IS_IT == true) {
+                echo "<div class='sha_env'>shadow mode on</div>";
+}
+$FIG = getFIG("reportBASIC", "ViewList"); 
 
 
 
-$SHADOW_PROD_TOGGLE = SHADOW_PROD_ENV(false);
+$SHADOW_PROD_TOGGLE = $sha_env;
 $router_1 = ROUTE('d', $SHADOW_PROD_TOGGLE);
 
-$route = $router_1 . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
+$route = $router_1 . $GLOBALS[$SITE]['URI'] . '/';
+    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.post.json';    
+  
+ $router_1 . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
     $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.report.json';    
 $CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
 usort($CHEST_THINGS, function($a, $b) {

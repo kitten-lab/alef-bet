@@ -33,11 +33,11 @@ $assistant = 'ADM-' . $FIG['assistant'];
 </span>
 
 
+
     <label for="POST__TAGS"><?= $FIG['Tags']; ?></label><br>
     <textarea 
     rows="5" cols="30"
     name="POST__TAGS" id="tag-input" placeholder="type your thread..." /></textarea>
-
 
 <span class="">
     <label for="POST__EVENT_UNIX"><?= $FIG['UNIX']; ?></label><br>

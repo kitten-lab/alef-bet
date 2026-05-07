@@ -11,17 +11,11 @@ $SKY_AUTH = $GLOBALS[$SITE]; ?>
 <ul>
 
 
-<div class="ROOM_ID">
-
-<?= $SKY_AUTH['SYS_DISPLAY'] . ' ' . $SKY_AUTH['DOM_DISPLAY'] ?>
-</div>
-<?php 
-img($SKY_AUTH['MOD_SLUG'] . ".png", 
-    $SKY_AUTH['SYS_SLUG'], 
-    "LOGO", "", "room-logo"); 
-    ?>
-<div class="ROOM_ID">
-LOCATION: <?= $SKY_AUTH['ROOM_DISPLAY'] ?><br>
+<div id="room_logo">
+<span id="modslug" class="mod-slug"></span>
+<span id="mod" class="mod-name"></span>
+<span id="key" class="room-location"></span>
+<span id="comp" class="company"></span>
 </div>
 <div class="ROOM_ID">
 
@@ -31,10 +25,10 @@ OTHER KNOWN LOCATIONS IN<BR><?= $SKY_AUTH['DOM_DISPLAY']; ?>
 <?php 
 
 
-if ($section['DOOR'] == $SKY_AUTH['DOM_SLUG']) {
+if ($section['DOM'] == $SKY_AUTH['DOM_SLUG']) {
  foreach ($section['ROOMS'] as $item) {
-echo "<li><a href='" . b_root . '/' . $SKY_AUTH['URI'] . '?' . $section['DOOR'] . '=' . $item['ROOM'] . "'>";
-echo $item['KEY'] . "</a></li>";
+echo "<li id='" . $item['KEY'] . "'><a href='" . b_root . '/' . $SKY_AUTH['URI'] . '?' . $section['DOM'] . '=' . $item['KEY'] . "'>";
+echo $item['ROOM'] . "</a></li>";
  }
 }
 endforeach; ?>
@@ -45,3 +39,22 @@ endforeach; ?>
 </ul>
 
 </nav></aside>
+<script>
+const SYS = <?php echo json_encode($SKY_AUTH['SYS']); ?>;
+const sys = <?php echo json_encode(strtolower($SKY_AUTH['SYS'])); ?>;
+const domVAR = <?php echo json_encode(strtolower($SKY_AUTH['DOM_SLUG'])); ?>;
+const roomVAR = <?php echo json_encode(strtolower($SKY_AUTH['ROOM_SLUG'])); ?>;
+const ROOM = <?php echo json_encode($SKY_AUTH['ROOM_DISPLAY']); ?>;
+const MOD = <?php echo json_encode(strtolower($SKY_AUTH['MOD_DISPLAY'])); ?>;
+const MODSLUG = <?php echo json_encode(strtolower($SKY_AUTH['MOD_SLUG'])); ?>;
+const DOM = <?php echo json_encode($SKY_AUTH['DOM_DISPLAY']); ?>;
+const checkKey = <?php echo json_encode($SKY_AUTH['ROOM_SLUG']); ?>;
+
+
+document.getElementById("modslug").innerHTML = MODSLUG;
+document.getElementById("mod").innerHTML = MOD;
+document.getElementById("key").innerHTML = "<BR>" + ROOM;
+document.getElementById("comp").innerHTML = SYS + " " + DOM;
+document.getElementById("room_logo").classList.add(sys + "-" + domVAR + "-" + roomVAR);
+document.getElementById(checkKey).classList.add("active");
+</script>

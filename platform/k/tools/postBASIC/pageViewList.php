@@ -33,11 +33,13 @@ foreach ($CHEST_THINGS as $TIMBER => $contents) {
     $tpsDT = new DateTime("@$unix");
             $tpsDT->setTimezone(new DateTimeZone("America/New_York"));
             $date = $tpsDT->format('Y-m-d h:i:sa');
-  echo "<div><a href='?w=" . $GLOBALS[$SITE]['ROOM_SLUG'] . '&id=' . $unix . "'>";
-  echo $contents['payload']['post']['topic'] . "</a> posted by " . $contents['import_env']['mod_slug'];
+  echo "<div id='$unix' class='listing'><a href='?w=" . $GLOBALS[$SITE]['ROOM_SLUG'] . '&id=' . $unix . "' class='listingLink'>";
+  echo $contents['payload']['post']['topic'] . "</a> ";
+  echo "posted by " . $contents['import_env']['mod_display'] . ", " . $contents['import_env']['mod_slug'];
+  
   echo "</div>";
 }
-}else { 
+} else { 
     echo "No fragments found."; 
     }
 ?>

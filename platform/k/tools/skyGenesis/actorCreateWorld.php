@@ -34,12 +34,12 @@ $ROUTE__LINE = ROUTE("b", $sha_env);
         else { mkdir($ROUTE, 0775, true); }
         
         $CREATED_SKY_AUTH = CREATE_SKY_AUTH();
-        $SKY_AUTH = $ROUTE . '-SKY_AUTH-' . $_POST['SYS_SLUG'] . '.php';
+        $SKY_AUTH = $ROUTE . '-SKY_AUTH-' . str_replace("/", "-", $_POST['SYS_SLUG']) . '.php';
 
     file_put_contents($SKY_AUTH, $CREATED_SKY_AUTH);
 
         $CREATED_SKY_SIG = CREATE_SKY_SIG();
-        $SKY_SIG = $ROUTE . '-SKY_SIG-' . $_POST['SYS_SLUG'] . '.php';
+        $SKY_SIG = $ROUTE . '-SKY_SIG-' . str_replace("/", "-", $_POST['SYS_SLUG']) . '.php';
 
     file_put_contents($SKY_SIG, $CREATED_SKY_SIG);
 
@@ -57,7 +57,7 @@ $ROUTE__LINE = ROUTE("c", $sha_env);
         else { mkdir($ROUTE, 0775, true); }
         
         $CREATED_WORLD_SIG = CREATE_WORLD_SIG();
-        $WORLD_SIG = $ROUTE . '--SIG--' . $_POST['SYS_SLUG'] . '.php';
+        $WORLD_SIG = $ROUTE . '--SIG--' . str_replace("/", "-", $_POST['SYS_SLUG']) . '.php';
 
         $CREATED_ERROR_FIG = CREATE_ERROR_FIG();
         $ERROR_FIG = $ROUTE . '-FIG--routeErrors.php';

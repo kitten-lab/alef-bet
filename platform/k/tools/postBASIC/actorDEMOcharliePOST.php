@@ -1,8 +1,8 @@
 <?php
 require_once $GLOBALS['INTERA']['SYSTEM'] . 'chestersCrates.php'; // CHEST CRATING SYSTEM
 
-require_once __DIR__ . '/-SIG-reportBASIC.php'; // ASSISTANT SETTINGS
-require_once __DIR__ . '/-CRATE-reportBASIC.php'; // CRATE FILLER SETTINGS
+require_once __DIR__ . '/-SIG-postBASIC.php'; // ASSISTANT SETTINGS
+require_once __DIR__ . '/-CRATE-postBASIC.php'; // CRATE FILLER SETTINGS
 
 require_once $GLOBALS['INTERA']['SYSTEM'] . 'shadowENVO.php';
     $IS_IT = $GLOBALS['TOOL']['SHADOWENVO'];
@@ -23,13 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // OKAY LETS CATALOG AND CRATE THIS BIT OF STUFFS! 
     //=============================================================================
 
-    chestersCRATES($sha_env, $tpstime, $unix, $timezone);
-    charliesTHREADS($sha_env, $tpstime);
-    catalogUNIX($sha_env, $tpstime);
+    demoSHIPMENT($sha_env, $tpstime, $unix, $timezone);
+    demoTHREADS($sha_env, $tpstime);
 
     //=============================================================================
     // OH $@%! -- DON'T FORGET YOUR TPS REPORT
     // ============================================================================
 
-    tpsREPORTS($sha_env, $tpstime, $ms, $event_time, $syear);
+    demoTPSReports($sha_env, $tpstime, $ms, $event_time, $syear);
 }

@@ -1,27 +1,45 @@
-<?php $SITE = $GLOBALS['SITE']; 
-require_once __DIR__ . '/-SIG-reportBASIC.php'; //GET SHADOW PROD TOGGLE
-require_once $GLOBALS['INTERA']['TOOLS'] . 'parsedown/Parsedown.php'; //GET SHADOW PROD TOGGLE
-require_once $GLOBALS['INTERA']['TOOLS'] . 'skyGenesis/functions.php'; //GET SHADOW PROD TOGGLE
+<?php $SITE = $GLOBALS['SITE'];
+require_once $GLOBALS['INTERA']['TOOLS'] . 'parsedown/Parsedown.php'; 
 
-$SHADOW_PROD_TOGGLE = SHADOW_PROD_ENV(false);
+require_once __DIR__ . '/-SIG-reportBASIC.php'; // ASSISTANT SETTINGS
+require_once __DIR__ . '/-CRATE-reportBASIC.php'; // CRATE FILLER SETTINGS
 
-$ROUTE__LINE = ROUTE('d', $SHADOW_PROD_TOGGLE);
+require_once $GLOBALS['INTERA']['SYSTEM'] . 'shadowENVO.php';
+    $IS_IT = $GLOBALS['TOOL']['SHADOWENVO'];
+        $sha_env = shadowENVO($IS_IT);
+            if ($IS_IT == true) {
+                echo "<div class='sha_env'>shadow mode on</div>";
+}
+$FIG = getFIG("reportBASIC", "ViewList"); 
 
-$ROUTE = $ROUTE__LINE . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
-  $CHEST = $ROUTE . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.report.json';
 
 
+$SHADOW_PROD_TOGGLE = $sha_env;
+$router_1 = ROUTE('d', $SHADOW_PROD_TOGGLE);
+
+$route = $router_1 . $GLOBALS[$SITE]['URI'] . '/';
+    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.report.json';    
+  
+if(file_exists($CHEST)) {
 $CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
+usort($CHEST_THINGS, function($a, $b) {
+    return $b['tps']['event_unix'] <=> $a['tps']['event_unix'];
+});
 
+foreach ($CHEST_THINGS as $TIMBER => $contents) {
+  $unix = $contents['tps']['ingest_unix'];
 
-foreach ($CHEST_THINGS as $TIMBER) {
-  $content = $TIMBER['payload']['post'];
-  $unix = $TIMBER['tps']['event_unix'];
     $tpsDT = new DateTime("@$unix");
             $tpsDT->setTimezone(new DateTimeZone("America/New_York"));
             $date = $tpsDT->format('Y-m-d h:i:sa');
-  echo "<div><a href='?w=" . $GLOBALS[$SITE]['ROOM_SLUG'] . '&id=' . $TIMBER['tps']['ingest_unix'] . "'>";
-  echo $content['topic'] . "</a> posted by " . $TIMBER['route']['from']['mod'] . ' at ' . $date;
+  echo "<div id='$unix' class='listing'><a href='?w=" . $GLOBALS[$SITE]['ROOM_SLUG'] . '&id=' . $unix . "' class='listingLink'>";
+  echo $contents['payload']['post']['topic'] . "</a> ";
+  echo "reported by " . $contents['route']['from']['mod'];
+  
   echo "</div>";
 }
+}else { 
+    echo "No fragments found."; 
+    }
+
 ?>

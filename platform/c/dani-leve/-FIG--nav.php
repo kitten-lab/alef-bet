@@ -38,10 +38,10 @@ $nav = [ "navSec" =>
                 "KEY" => "terminal prolog cli",  //nav label
                 "ROOM" => "smh_terminalprolog",  // key_name
             ],
-            [ 
+            /*[ 
                 "KEY" => "something mattered here",  //nav label
                 "ROOM" => "smh_forgettinghouse",  // key_name
-            ]
+            ]*/
     /* SECTION GROUP -------------------------------- */
     ]],[ 
         "DOM" => "resume", 
@@ -64,7 +64,7 @@ $nav = [ "navSec" =>
                 "ROOM" => "system",  // key_name
             ],
     /* SECTION GROUP -------------------------------- */
-    ]],[ 
+    ]],/*[ 
         "DOM" => "about", 
         "BUILDING" => "MOD", 
         "PRIME_KEY" => "me", 
@@ -79,8 +79,7 @@ $nav = [ "navSec" =>
                 "KEY" => "contact",  //nav label
                 "ROOM" => "contact",  // key_name
             ],
-    /* SECTION GROUP -------------------------------- */
-    ]],
+    ]],*/
     ];
 
 ?>

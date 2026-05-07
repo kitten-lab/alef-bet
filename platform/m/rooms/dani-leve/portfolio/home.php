@@ -14,19 +14,20 @@ SKY__AUTH(
 
 openSky('Portfolio for Danielle Leve');
 section('','case_study');
+section('margin:20px;','case_study');
     title("SILO: MY POCKET INTERNET" , "lead", 1);
     title("AN INTERNET-SHAPED PERSONAL DATA AND CONTENT MANAGEMENT SYSTEM", "sublead", 2);
 
 hr();
-leaf("<H4>QUICK JUMP</H4>[ <a href='#system'>Features Overview</a> ] [ <a href='#philo'>The Need</a> ] [ <a href='#surfaces'>Example Surfaces</a> ] ");
+leaf("<H4>QUICK JUMP</H4> [ <a href='#surfaces'>Example Surfaces</a> ] [ <a href='#system'>Features Overview</a> ] [ <a href='#quickmore'>Additional System Details</a> ] [ <a href='#philo'>The Need</a> ]");
 hr();
 
 title("Quick Handle:","handle",3);
 leaf("A unique data management system that acts as a small pocket internet.
-Driven on quickly produable web surfaces all sharing a linked toolset and architecture. 
+Driven on quickly producible web surfaces all sharing a linked toolset and architecture. 
 Each surface can be accessed via the internet, and tools may be placed on pages via a simple custom DSL. 
 
-Make a page, ingest a note, remove the post tool, and viola! 
+Make a page, ingest a note, remove the post tool, and voila! 
 
 Your data has been crated in a shared json data format, distributed across an array of simple paper reports, 
 and now exists as a surface artifact you can remember contextually by the look and feel of where it was placed.");
@@ -34,7 +35,16 @@ title("Quick Purpose:","purpose",3);
 leaf("An expressive and structured content and data-management system powered by PHP and JSON.
 ");
 
+
 hr();
+    title("Example Surfaces","surfaces",1);
+
+    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_hero.png' style='width:80%'> ");
+hr();
+    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_skyline.png' style='width:34%'> ");
+    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_bigbox.png' style='width:31%'> ");
+    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_terminal.png' style='width:32.5%'> ");
+    hr();
 
 section('width:68%;',"");
     title("Features Overview", "system", 1);
@@ -43,7 +53,7 @@ leaf("<H4>DETAILED FEATURES</H4>[ <a href='#data-storage'>Chester's Imports: Dat
 hr();
     title("The Aleph Bet Router: A Decentralized Render-Engine","engine",2);
         leaf("Each aspect of the page rendering process is partitioned into provinces. 
-        The routes are letter coded, each responsible for handling a specific aspect of the Silo architecture.
+        The routes are letter coded, each responsible for handling a specific aspect of the SILO architecture.
     <ul>
         <li>A - To styles, shells, and common page includes for the surfaces</li>
         <li>B - Front-facing credential files (indicated where to route to call the requested pages)</li>
@@ -65,7 +75,7 @@ hr();
     ");
     hr();
     title("Route K: Integratable Tools, Assistants and Toys","tools-toys",2);
-    leaf("A set of tools and toys can be injested onto any room(page) on the system using skylite's getTool(); function.
+    leaf("A set of tools and toys can be ingested onto any room(page) on the system using skylite's getTool(); function.
 These tools and toys enable a wider array of features and functionalities to the surfaces.
 These include a variety of ingestion tools and display pages:
 <blockquote>
@@ -91,7 +101,7 @@ These include a variety of ingestion tools and display pages:
     title("Chester's Imports: Crates! A Normalized {JSON} Data Structure","data-storage",2);
     leaf("Each ingestor tool, including creation tools, creates a normalized json nest called a CRATE. 
 
-    Each crate is given a unique CUID and stored in locations based on posting surface, cross-surface delivery, and long term data storage, both by ingested time and any provide event time.
+    Each crate is given a unique CUID and stored in locations based on posting surface, cross-surface delivery, and long term data storage, both by ingested time and any provided event time.
     
     Each crate contains the following content:
     <ul><li>CUID: Unique crate ID generated at time of creation</li>
@@ -100,7 +110,7 @@ These include a variety of ingestion tools and display pages:
     <li>Route: The route, when a crate was create via a cross-surface ingestor</li>
     <li>charlieTHREADS: The parsed and nested tags from charlieTAGS</li>
     <li>Tag Metadata: The versioning for the tag parser and the raw tag string</li>
-    <li>Envioronment: The details of the surface environment location ingestion occured</li>
+    <li>Environment: The details of the surface environment location ingestion occurred</li>
     <li>Source: Space for storing the detailed metadata for origin material location (ie importing from Obsidian or Evernote)</li>
     <li>TPS data: Unix timestamps for both ingested time and event time</li></ul>
     ");
@@ -116,15 +126,29 @@ hr();
     charlieTHREADS turns tagging into a temporal, relational system.
 
     <ul><li>preserves history instead of overwriting state</li><li>allows multiple perspectives (who reported what)</li><li>enables time-based queries (first mention, last mention, frequency)</li><li>supports conflicting or evolving truths</li></ul>
-this allows silo to function less like a notes app and more like a living data network.");
+this allows SILO to function less like a notes app and more like a living data network.
+
+");
    
+hr();
+
+title("Additional System Details","quickmore",1);
+leaf("SILO also includes:
+<ul><li>temporal clustering reports</li>
+<li>fragmented-event reconstruction and recording</li>
+<li>relational entity tracking</li>
+<li>cross-surface chonology analysis</li>
+<li>weighted narrative reporting</li>
+<li>nuanced paper reports for tag relationships</li>
+<li>contextual timeline synthesis</li></ul>
+");
 hr();
     title("The Story of the Needing Something", "philo", 1);
 
     leaf("Over the years, I have collected a lot of data. 
 Thoughts, poems, story ideas, systems, theories, research, and more. 
 
-Without some type of organization and unification, my data had become a near inaccessable, sprawling nightmare to manage.
+Without some type of organization and unification, my data had become a near inaccessible, sprawling nightmare to manage.
 My Pocket Internet is my solution to that problem.
 
 So many times I found myself writing the same material over: 
@@ -136,7 +160,7 @@ So many times I found myself writing the same material over:
 
 In a pinch, without the ability to locate my data, I would reproduce again and again that which I had, somewhere, stored already.
 
-An organizer at heart, I was constantly trying new tools, searching anything to help hold, manage, and cross-relate all of the many fragments of data I had captured over dozens of years. 
+An organizer at heart, I was constantly trying new tools, searching anything to help hold, manage, and cross-connect all of the many fragments of data I had captured over dozens of years. 
 
 I was a writer, an artist, a philosopher, a mother, a production executive. 
 Every facet of my thinking had different needs and contexts for storing their data.
@@ -147,16 +171,9 @@ Year after year, try after try, each tool fell short in one or more of the needs
 
 I wanted a platform where all of my notes connected like entities, and time and connection was all threaded, tagged, and tracked over context and stored universally, in a way I could later derive deeper meaning found between the edges of the data, via reports and catalog lookups.
 
-I hadn't worked in PHP before, but I needed something! I started building a framework:<h2>the pocket internet</h2>a data system that acts as a small pocket internet, driven on quickly produable web surfaces all sharing a linked toolset and architecture. Each surface can be accessed via the internet, and tools may be placed on pages via a simple custom DSL. Make a page, ingest a note, remove the post tool, and viola! Your data has been crated in a shared json data format, distributed across an array of simple paper reports, and now exists as a surface artifact you can remember contextually by the look and feel of where it was placed.");
+I hadn't worked in PHP before, but I needed something! I started building a framework:<h2>the pocket internet</h2>a data system that acts as a small pocket internet, driven on quickly producible web surfaces all sharing a linked toolset and architecture. Each surface can be accessed via the internet, and tools may be placed on pages via a simple custom DSL. Make a page, ingest a note, remove the post tool, and viola! Your data has been crated in a shared json data format, distributed across an array of simple paper reports, and now exists as a surface artifact you can remember contextually by the look and feel of where it was placed.");
     
-hr();
-    title("Example Surfaces","surfaces",1);
-
-    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_hero.png' style='width:100%'> ");
-hr();
-    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_skyline.png' style='width:34%'> ");
-    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_bigbox.png' style='width:31%'> ");
-    skylite("<img src='". i_root ."/dani-leve/portfolio/silo_terminal.png' style='width:32.5%'> ");
+close_section();
 close_section();
 close_section();
 

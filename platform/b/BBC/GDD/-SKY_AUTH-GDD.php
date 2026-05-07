@@ -16,6 +16,6 @@ $SHELL_ROUTE = $ROUTE['A'][$SYS];
 
 getSkyAUTH($SHELL_ROUTE);
 
-include $ROUTE['C'][$SYS] . $SITE . '/--SIG--' . $SITE . '.php';
+include $ROUTE['C'][$URI] . '--SIG--' . $SYS . '.php';
 
 ?>
