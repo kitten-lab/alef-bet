@@ -92,7 +92,6 @@ function getFIG($TOOL, $FUNCTION){
 $SITE = $GLOBALS['SITE'];
 $THEME = $GLOBALS[$SITE]["ROOM_FLAVOR"];
 return $GLOBALS['TOOL']['SIGFIG'][$THEME][$FUNCTION]; 
-require __DIR__ . '/-SIG-' . $TOOL . '.php';
 }
 
 

@@ -1,155 +1,41 @@
 
+<body class="office">
+<div class="clue" id="viewport"></div>
 
-<style>
-.game-screen {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  width: 1024px;
-  border: 1px solid white;
-  padding: 20px;
-}
+<div id="reels" class="reels"></div>
+<button class="spin" onclick="spin()">SEARCH</button>
 
-customer p {
-    border-bottom: 1px;
-}
+<div class="flex-container">
+  <div class="column2">
 
-.atmosphere {
-    position:relative;
-    top: 20px;
-    right: 20px;
-}
-.special {
-    font-weight: 600;
-    color: red;
-}
-
-.high {
-    background-color: rgba(251, 255, 0, 0.22);
-}
-
-story {
-    position: relative;
-}
-
-span {
-    display: table-row;
-}
-
-.tile {
-    color: transparent;
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    flex: 0 0 19%; 
-    box-sizing: border-box;
-    text-align: center;
-    margin:2px;
-}
-.reels {
-    display: flex;
-    flex-wrap: wrap;
-    width: 500px;
-}
-
-.SP {
-  background-color: rgb(83, 0, 0);
-  border: 2px solid rgb(97, 43, 43);
-  box-shadow: inset 0px 0px 1px rgb(84, 14, 14);
-  background: repeating-linear-gradient(90deg, #570707, #a70808 80px);
-  
-}
-
-.SP::after {
-    position: relative;
-    content: "CASE #3";
-    color: rgb(178, 109, 109) !important;
-    margin-left: -20px;
-}
-
-.HP1 {
-
-  background-color: blue;
-  border: 4px solid #0e0c5e;
-  background: repeating-linear-gradient(45deg, #312b60, #273e6f 10px, #312b60 10px, #0e0c5e 20px);
-}
-.HP2 {
-
-  background-color: rgb(81, 105, 81);
-  border: 4px solid #3d443b47;
-  background-image: radial-gradient(#3d443b47 8px, transparent 2px);
-  background-size: 20px 20px;
-}
-.MP1 {
-
-  background-color: #b3339acd;
-  border: 3px solid #ffffff99;
-}
-.MP2 {
-
-  background-color: #2a87159e;
-  border: 3px solid #ffffff99;
-}
-.MP3 {
-
-  background-color: #b07556a0;
-  border: 3px solid #ffffff99;
-}
-.LP1 {
-
-  background-color: #ffaeee33;
-  border: 2px solid #ffffff99;
-}
-.LP2 {
-
-  background-color: #bdffae33;
-  border: 2px solid #ffffff99;
-}
-.LP3 {
-
-  background-color: #3d3647;
-  border: 2px solid #ffffff99;
-}
-.LP4 {
-
-  background-color: #3f394f;
-  border: 2px solid #ffffff99;
-  background-image: 
-    linear-gradient(rgb(88, 11, 11) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(94, 16, 16) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-
-.match {
-    border: 5px solid rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.429);
-    box-shadow: 0 0 5px white;
-}
-</style>
-
-    </head>
-<div id="wrapper" class="office">
-
-<div class="game-screen">
 <h2 id="case" class="heading"></h2>
 <span id="atmosphere" class='atmosphere'>ATMOSPHERE: The office at night.</span>
-<div id="reels" class="reels"></div>
-
-<div class="story">
-<p id="major_clue"></p>
 <p id="customer"></p>
-<p id="clue"></p>
-</div>
+
+  </div>
+  <div class="column">
+
+<div class="game-nall_spinsative">
+<p id="major_clue"></p>
+
 
 <p id="last_spin"></p>
+</div>
+
+
+  </div>
+</div>
+
+<div id="app">
+
+
+
 
 </div>
-<button onclick="spin()">SPIN</button>
+
+
 <script>
-const symbols = ["SP", "HP1", "HP2", "MP1", "MP2", "MP3", "LP1", "LP2", "LP3", "LP4"]
+const symbols = ["SP", "HP1", "HP2", "MP1", "MP2", "MP3", "SP",  "MP1", "MP2", "MP3", "HP1", "HP2", "LP1","SP",  "LP2", "LP3", "LP4", "LP1", "LP2", "LP3", "LP4", ]
 const atmosphere = [
     "Rain pounds outside.",
     "There is the subtle sense of a heartbeat.",
@@ -158,17 +44,40 @@ const atmosphere = [
 
 const cases = [
   {
+    title: "The Smudged Man",
+    slug: "casey1",
+    customer: "Some Mary",
+    clues: [
+      "It's a cold Tuesday. Every Tuesday's been cold for decades now. A woman walks into the Office at 78 Case Street. Sour face. Sour hands.",
+      "I ask her how I can help. She looks bothered I even exist. I wonder what drives a woman to ask for help in a place that clearly disgusts her.",
+      "She hands me a set of keys and a black wallet.",
+      "She leaves without a word.",
+      "I check the wallet. It contains an ID but the face is blurred. So is most of the name. I can make out only a C starting the first name, and nothing more.",
+      "There is a business card in the wallet.",
+      "ChesterImports.com! Now importing ~anything~.",
+      "There is no indication that any of this means anything. Case Closed."
+    ]
+  },
+  {
     title: "The Unattended Reservation",
     slug: "red_lady1",
-    customer: "A Woman in a Red Dress",
+    customer: "The Red Lady",
     clues: [
       "OBSERVATION: She is flustered and slightly damp. It must be raining pretty well tonight.",
-      "'I was told they would be there. No one arrived.'",
-      "The table was reserved. No name attached.",
-      "She kept checking the door.",
-      "Two glasses. One untouched.",
-      "Someone paid before she got there.",
-      "Case Closed"
+      "There was anger, almost fear in her eyes. 'I was told they would be there. No one all_spinsived.'",
+      "I ask her what's wrong. She said she'd been invited to a special meeting.",
+      "'Something went wrong. Something changed.' she said. 'No one came, but everything changed.'",
+      "I asked her to elaborate on the change. She wouldn't exactly say. She only redirected to the meeting.",
+      "'The table was reserved. It should have happened correctly.' she said.",
+      "The only thing she was certain of was that there was 'Two glasses. One untouched.' And yet no one ever all_spinsived.",
+      "I called the resturant. The host looked briefly at the previous bookings..",
+      "'Yup, see the reservation right here. For 3. No name attached.'",
+      "I called the restaurant one more time. Surely a name on the bill existed.",
+      "No name. Paid in cash. Someone had paid before she got there.",
+      "I called her back into the office a few nights later. She was drier now, both physically, and in tone.",
+      "'It's only gotten worse.' she said.",
+      "She kept checking the door. 'Got somewhere else to be?' I asked. She didn't reply.",
+      "With no other leads to go on, and an uncoperative client, I close the case, if it could even be called that."
     ]
   },
   {
@@ -181,7 +90,6 @@ const cases = [
       "Key keeps turning up at the desk.",
       "No one saw him leave.",
       "The bed is still warm.",
-      "Case Closed"
     ]
   }
 ]
@@ -201,7 +109,7 @@ function spin() {
     last_spin = symbols[rand]
     all_spins.push(last_spin)
     output += "<div id='" + last_spin + "' class='tile " + last_spin + "'>" + last_spin + "</div>"
-    if ((i + 1) % 5 === 0) output += "<br>"
+    //if ((i + 1) % 5 === 0) output += "<br>"
   }
   document.getElementById("reels").innerHTML = output
   console.log(all_spins);
@@ -216,6 +124,7 @@ function spin() {
         counts[symbol]++
     }
   }
+
 
   console.log(counts)
   let result = []
@@ -236,11 +145,11 @@ function spin() {
   if (result.length > 0) {
    if (!currentCase) {
       currentCase = cases[Math.floor(Math.random() * cases.length)]
-      clue_count = 0
+      clue_count = 1
       clueIndex = 0
       document.getElementById("case").innerText = "CASE: " + currentCase.title
       document.getElementById("customer").innerText = "CUSTOMER: " + currentCase.customer
-      document.getElementById("wrapper").classList = currentCase.slug
+      document.body.classList = currentCase.slug
     }
 
     if (clueIndex < currentCase.clues.length) {
@@ -250,34 +159,35 @@ function spin() {
         if (lowFound) {
         let rand = Math.floor(Math.random() * atmosphere.length)
         document.getElementById("atmosphere").innerText = "ATMOSPHERE: " + atmosphere[rand]
+        document.getElementById("viewport").innerHTML += "<span class='frag' id='" + clue_count + "'> Fragment " + clue_count + ": ATMOSPHERE: " + atmosphere[rand]
         }
 
         const mediumFound = result.find(item => item.includes("MP"));
         if (mediumFound) {
-        document.getElementById("clue").innerHTML += "<span id='" + clue_count + "'>" + currentCase.clues[clueIndex] + "</span"
+        document.getElementById("viewport").innerHTML += "<span class='frag' id='" + clue_count + "'> Fragment " + clue_count + ": " + currentCase.clues[clueIndex] + "</span>"
         clueIndex++
 
         }
 
         const found = result.find(item => item.includes("SP"));
         if (found) {
-        document.getElementById("clue").innerHTML += "<span id='" + clue_count + "'>" + currentCase.clues[clueIndex] + "</span"
-        clueIndex++
+        document.getElementById("viewport").innerHTML += "<span class='frag' id='" + clue_count + "'> Fragment " + clue_count + ": KEY: " + currentCase.clues[clueIndex] + "</span>"
         document.getElementById(clue_count).classList.add('special')
+        clueIndex++
         }
 
         const hifound = result.find(item => item.includes("HP"));
         if (hifound) {
-        document.getElementById("clue").innerHTML += "<span id='" + clue_count + "'>" + currentCase.clues[clueIndex] + "</span"
-        clueIndex++
+        document.getElementById("viewport").innerHTML += "<span class='frag' id='" + clue_count + "'> Fragment " + clue_count + ": CLUE: " + currentCase.clues[clueIndex] + "</span>"
         document.getElementById(clue_count).classList.add('high')
+        clueIndex++
         
         }
 
     clue_count++
     
     } else {
-      document.getElementById("clue").innerText = ""
+      document.getElementById("viewport").innerText = ""
       document.getElementById("case").innerText = "The Office"
       document.getElementById("customer").innerText = ""
       document.getElementById("atmosphere").innerText = "ATMOSPHERE: The office at night."
@@ -287,3 +197,6 @@ function spin() {
     }
 }
 </script>
+
+</body>
+</html>

@@ -53,6 +53,25 @@ $GLOBALS['TOOL'] = [
                 "Submit_Button"     => "WHISPER TO THE CU",
                 
             ]
+        ],
+        "omansOmens" => [
+            "IntakeReport" => [
+                "user"              => "The-Seeking",
+                "assistant"         => "The-Saught",
+                "Reporter"          => "<h2 class='slug'>Who are you?</h2> Not always what your parents named you. What's your name, symbol, or self-code?<br><br>",
+                "Reporter_plhldr"   => "Name Yourself ~anything~",
+                "Reporter_default"  => "",
+                "Topic"             => "<h2 class='slug'>What did you witness?</h2>Nutshell it. Be concise. You'll track your own consolidation as meaningful.<br><br>",
+                "Topic_plhldr"      => "(Example: A bluejay sticker in a box I had forgotten about.)",
+                "Tags"              => "<h2 class='slug'>charlieTHREADS</h2>charlie can THREAD things. Tag language is percise. Use only is you understand <br>this*related>that&holds>that;understanding*you>system,structure,format<br>",
+                "Text"              => "<h2 class='slug'>What did it feel like it meant?</h2>Expand on it, if you'd like. You don't have to, but sometimes... sometimes we have more to say.",
+                "Text_plhldr"       => "Enter your report here.",
+                "UNIX"              => "<h2 class='slug'>INTERNAL USE ONLY</h2>Use at your own risk. Temporal adjustments effect the storage of all things.<br>",
+                "UNIX_plhldr"       => "KNOWN U-StampS ONLY",
+                "Confirmation_Msg"  => "You have been witnessed.",
+                "Submit_Button"     => "Submit Report",
+                
+            ]
         ]
     ]
     

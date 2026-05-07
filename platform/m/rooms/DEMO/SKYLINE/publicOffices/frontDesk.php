@@ -1,4 +1,5 @@
 <?php
+
 SKY__AUTH(
     /*MOD_SLUG*/     "WELCOME-AGENT",
     /*MOD_DISPLAY*/  "RHEA CEPCIAN", 
@@ -11,23 +12,11 @@ SKY__AUTH(
 
     /*ROOM_FLAVOR*/  "skyline-standard"
 );
+openSky("Welcome to the SKYLINE(Demo)");
+title("A Sign hangs over the large desk. 'Welcome Home, Weary Traveler', it says.", "magfrag", 1);
+getTool("postBASIC", "SoperView");
 
-openSky($GLOBALS[$SITE]['SYS_DISPLAY'] . " " . $GLOBALS[$SITE]['ROOM_DISPLAY']);
-
-bigHeading("Welcome Home, Weary Traveler");
-medHeading("You have arrived at the SKYLINE FRONT DESK.");
-
-leaf("Thank you for becoming part of our SIGHT. We are THE-CU and this is SKYLINE on INTERA.
-Now running in DEMO MODE, so you can explore our place and store your data as your explore.
-Your data will not merge with mine! It is stored uniquely for this DEMO (POCKET)POCKET INTERNET.
-
-<strong>SKYLINE</strong> is a reporting surface, meaning it is primarily used to REPORT information
-into the deeper architecture beneath the POCKET INTERNET (the 'wires').
-
-You may explore the REPORTING tools by journeying to <a href='" . b_root . '/' . $GLOBALS[$SITE]['URI'] . "?reportDepartment=front-desk'>THE REPORT DEPARTMENT</a>
-
-Good luck!
--THE-CU-");
-
+leaf("--
+Content on this page was ingested with postBASIC and is being displayed in SoperView");
 closeSky();
 ?>

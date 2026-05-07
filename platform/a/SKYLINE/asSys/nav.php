@@ -10,16 +10,17 @@ $SKY_AUTH = $GLOBALS[$SITE]; ?>
 
 <ul>
 
-
+<div class="other_sections">
+<h3>Agent MOD Online</h3>
+</div>
 <div id="room_logo">
 <span id="modslug" class="mod-slug"></span>
 <span id="mod" class="mod-name"></span>
 <span id="key" class="room-location"></span>
 <span id="comp" class="company"></span>
 </div>
-<div class="ROOM_ID">
-
-OTHER KNOWN LOCATIONS IN<BR><?= $SKY_AUTH['DOM_DISPLAY']; ?>
+<div class="other_sections">
+<h3>THE ROOMS OF <?= $SKY_AUTH['DOM_DISPLAY']; ?></h3></div>
 </div>
 <?php foreach ($nav as $section): ?>
 <?php 

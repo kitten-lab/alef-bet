@@ -30,7 +30,6 @@ $assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
         name="POST__TIMBER_LEAF" 
         placeholder="<?= $FIG['Content_plhldr']; ?>" 
         required></textarea>
-        <br>
     </span>
 
 
@@ -46,21 +45,16 @@ $assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
         name="POST__EVENT_UNIX" 
         placeholder="<?= $FIG['UNIX_plhldr']; ?>"
         type="number">
-    <br>
 </span>
 
 
-<span style="display: grid; grid-template-columns: auto; gap: 2px; text-align:left;padding: 4px;">
-<div>ACTING AGENT:</div>
-<div>
+<div style="display: grid; grid-template-columns: 4, 1fr; gap: 2px; text-align:left;padding: 4px;">
+ACTING AGENT:
 <input type="radio" id="MRA" name="agent" value="<?= $user; ?>" style="width:25px;">
 <label for="MRA"><?= $user; ?></label>
-</div>
-<div>
 <input type="radio" id="ADM" name="agent" value="<?= $assistant; ?>" style="width:25px;">
 <label for="ADM"><?= $assistant; ?></label>
 </div>
-</span>
 
   <input type="hidden" name="POST__TZ" id="tz-input">
 

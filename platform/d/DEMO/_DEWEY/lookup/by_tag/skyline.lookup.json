@@ -2,18 +2,17 @@
     "CABINET": {
         "skyline": {
             "METADATA": {
-                "GRAVITY": 11,
+                "GRAVITY": 13,
                 "INGEST": {
                     "FIRST": 1778130092,
-                    "LAST": 1778130525
+                    "LAST": 1778163643
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1778130525": [
-                        "posts",
+                    "1778163643": [
                         "posts",
                         "posts"
                     ]
@@ -22,20 +21,19 @@
             "SHELF": {
                 "posts": {
                     "METADATA": {
-                        "GRAVITY": 11,
+                        "GRAVITY": 13,
                         "INGEST": {
                             "FIRST": 1778130092,
-                            "LAST": 1778130525
+                            "LAST": 1778163643
                         },
                         "EVENT": {
                             "FIRST": [],
                             "LAST": []
                         },
                         "LAST_USAGE": {
-                            "1778130525": [
-                                "final-note",
-                                "signature",
-                                "sky"
+                            "1778163643": [
+                                "reception",
+                                "welcome-message1"
                             ]
                         }
                     },
@@ -196,6 +194,46 @@
                                 "1778130525": {
                                     "WELCOME-AGENT": [
                                         "crate.2F522D804955B75F"
+                                    ]
+                                }
+                            }
+                        },
+                        "reception": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778163643,
+                                    "LAST": 1778163643
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778163643": {
+                                    "WELCOME-AGENT": [
+                                        "crate.1C37CCEFF33C7616"
+                                    ]
+                                }
+                            }
+                        },
+                        "welcome-message1": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778163643,
+                                    "LAST": 1778163643
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778163643": {
+                                    "WELCOME-AGENT": [
+                                        "crate.1C37CCEFF33C7616"
                                     ]
                                 }
                             }

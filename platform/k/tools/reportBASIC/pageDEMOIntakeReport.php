@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/-SIG-reportBASIC.php'; // ASSISTANT SETTINGS
 $FIG = getFIG("reportBASIC", "IntakeReport"); 
-$user = 'DEMO-' . $GLOBALS['DEMO']['USER'];
-$assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
+$user = 'D-' . $FIG['user'];
+$assistant = 'D-' . $FIG['assistant'];
 
 ?>
 
@@ -18,7 +18,6 @@ $assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
         name="POST__REPORTER" 
         value="<?= $FIG['Reporter_default']; ?>"
         placeholder="<?= $FIG['Reporter_plhldr']; ?>" >
-    <br>
 </span>
 <span class="">
     <label for="POST__TIMBER_TOPIC"><?= $FIG['Topic']; ?></label>
@@ -26,8 +25,6 @@ $assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
         name="POST__TIMBER_TOPIC" 
         placeholder="<?= $FIG['Topic_plhldr']; ?>" 
         required>
-    <br>
-    <br>
 </span>
 <span class="">
     <label for="POST__TIMBER_LEAF"><?= $FIG['Text']; ?></label><br>

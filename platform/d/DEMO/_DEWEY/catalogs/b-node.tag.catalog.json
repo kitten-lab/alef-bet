@@ -1,10 +1,10 @@
 {
-    "count": 42,
+    "count": 44,
     "b-node": {
         "news": 5,
         "reports": 22,
         "animal": 2,
         "pattern": 2,
-        "posts": 11
+        "posts": 13
     }
 }

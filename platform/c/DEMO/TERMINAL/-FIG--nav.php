@@ -11,11 +11,12 @@ Listen, you are going to need to TRUST THE [] colors. They
 don't lie. But sometimes, you will be confused by this nest.
 That's okay. Each time it WILL GET EASIER.  -abl 
 --------------------------------------------------------------*/
+$GLOBALS[$SITE]['GETS']['navCall'] = $GLOBALS['SONAR'] . 'a/' . $SITE . '/asSys/nav.php'; 
 
 
 $GLOBALS[$SITE]['tDOM'] = [
                     ["DOM" => "public"],
-                    ["DOM" => "root"],
+                    ["DOM" => "run"],
                     ["DOM" => "w"],
                     ];
 $GLOBALS[$SITE]['key'] = "home"; 
@@ -27,17 +28,17 @@ $nav = [ "navSec" =>
         "PRIME_KEY" => "hi-from-SKY", 
         "ROOMS" => [
             [ 
-                "ROOM" => "hi-from-SKY", //LABEL
+                "ROOM" => "hi.MSG: ALT001", //LABEL
                 "KEY" => "hi-from-SKY", 
             ],
         ]
  ],[ 
-        "DOM" => "root", 
+        "DOM" => "run", 
         "BUILDING" => "terminal.root", 
         "KEY" => "home", 
         "ROOMS" => [ [
-                "ROOM" => "access", 
-                "KEY" => "limited access", 
+                "ROOM" => "REPLAY prolog", 
+                "KEY" => "prolog", 
             ],
         ]
  ]

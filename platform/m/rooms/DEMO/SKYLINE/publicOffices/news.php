@@ -18,5 +18,7 @@ title("Skyline News Desk", "header", 1);
 medHeading("RECENT NEWS FROM THE SILO");
 getTool("postBASIC","ViewList");
 
+leaf("--
+Content on this page was ingested with postBASIC and is being displayed in ViewList linking to ViewPost");
 closeSky();
 ?>

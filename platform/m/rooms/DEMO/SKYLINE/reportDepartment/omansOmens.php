@@ -10,7 +10,7 @@ SKY__AUTH(
     /*ROOM_SLUG*/    "omansOmens", 
     /*MOD_DISPLAY*/  "OMAN'S OMENS",
 
-    /*ROOM_FLAVOR*/  "skyline-standard"
+    /*ROOM_FLAVOR*/  "omansOmens"
 );
 
 bigHeading("OM. Please record an omen.");
@@ -22,4 +22,7 @@ getTool("reportBASIC", "ListReports");
 hr();
 
 getTool("reportBASIC", "DEMOIntakeReport");
+
+leaf("--
+Oman O'mente is using reportBASIC's IntakeReport with a special Room_Flavor applied. Applying a custom 'omansOmens' SIG FIG file modifies his form and parts out his outputs in any way he would like. The reports are printed back via reportBASIC's ListReports.");
 closeSky();

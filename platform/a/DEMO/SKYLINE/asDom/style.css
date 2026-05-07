@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
 body::before {
     content: "DEMO SYSTEM, USE FREELY";
     display: flex;
@@ -16,6 +18,27 @@ body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Jersey 10';
+    text-align: center;
+}
+
+#reels.reels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+  gap: 10px; /* Optional: space between items */
+}
+
+.tile {
+    display: inline-block;
+width: 16px;
+}
+h1#magfrag {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 header, footer {
     width: 98% !important;
 }
@@ -31,13 +54,42 @@ hr {
     padding: 10px;
 }
 
+footer {
+    font-size: small;
+}
+
 div.slug {
     background-color: rgba(255, 255, 255, 0.185);
     padding: 4px;
-    text-align: center;
     border-bottom: solid 1px #aaa;
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
 }
 
+
+h2.slug {
+    background-color: rgba(255, 255, 255, 0.185);
+    padding: 4px;
+    border-bottom: solid 1px #aaa;
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+input, textarea {
+    display: flex;
+    flex:1;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 6px;
+    font-size: .7rem;
+    width: 60%;
+}
+
+form {
+    position: relative;
+}
 div.content {
     margin-left: 20px;
     padding: 10px;
@@ -112,33 +164,53 @@ P {
 
 #room_logo {
     display: block;
-  margin: 4px 4px 10px 4px;
   padding: 15px;
-  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  margin-bottom:10px;
+  background: #e6e6e6;
   color: #333;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Jersey 10";
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 4px;
   border-left: 5px solid #879787; /* Accent color */
-  box-shadow: 3px 3px 0px rgba(0,0,0,0.1), 
-              inset 1px 1px 2px rgb(255, 255, 255);
   position: relative;
   border: 1px solid rgba(128, 128, 128, 0.24);
+  box-shadow: inset 2px 2px 0 white;
+}
+
+.other_sections {
+    display: block;
+  margin-bottom:10px;
+  background: #d1dad4;
+  color: #333;
+  font-family: "Jersey 10";
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 5px solid #879787; /* Accent color */
+  position: relative;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  box-shadow: inset 2px 2px 0 white;
+  text-align: center;
+
+}
+
+.other_sections h3 {
+    margin: 10px;
 }
 
 .mod-name {
+  font-size: 1.6rem;
   position: relative;
   display: block;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.1rem;
+  font-family: "Jersey 10";
   font-weight: bold;
   color: #2c3e50;
   line-height: 1;
 }
 
 .mod-slug {
+  font-family: "Jersey 10";
   position: relative;
   display: block;
   margin-top: .2rem;
@@ -153,7 +225,7 @@ P {
   font-size: 0.8rem;
   letter-spacing: 2px;
   color: #4d5455;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: "Jersey 10";
   text-transform: uppercase;
 }
 
