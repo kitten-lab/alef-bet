@@ -29,7 +29,7 @@ $assistant = 'D-' . $FIG['assistant'];
 <span class="">
     <label for="POST__TIMBER_LEAF"><?= $FIG['Text']; ?></label><br>
     <textarea 
-    rows="10" cols="60"
+    rows="2" cols="60"
     name="POST__TIMBER_LEAF" 
     placeholder="<?= $FIG['Text_plhldr']; ?>" 
     required></textarea>
@@ -38,7 +38,7 @@ $assistant = 'D-' . $FIG['assistant'];
 <span class="">
     <label for="POST__TAGS"><?= $FIG['Tags']; ?></label><br>
     <textarea 
-    rows="5" cols="30"
+    rows="4" cols="30"
     name="POST__TAGS" id="tag-input" placeholder="type your thread..." /></textarea>
 </span>
 <br>

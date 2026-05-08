@@ -17,7 +17,7 @@ $SHADOW_PROD_TOGGLE = $sha_env;
 $router_1 = ROUTE('d', $SHADOW_PROD_TOGGLE);
 
 $route = $router_1 . $GLOBALS[$SITE]['URI'] . '/';
-    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.post.json';    
+    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.guestcu.json';    
   
 
 if(file_exists($CHEST)) {
@@ -29,10 +29,10 @@ if(file_exists($CHEST)) {
 
         $tpsDT = new DateTime("@$unix");
                 $tpsDT->setTimezone(new DateTimeZone("America/New_York"));
-                $date = $tpsDT->format('Y-m-d h:i:sa');
+                $date = $tpsDT->format('m/d/y h:ia');
         echo "<div class='soper_frag'>";
-        echo "<div class='slug'>" . $contents['payload']['post']['topic'] . "</div>";
-        echo "<div class='content'>" . $Parsedown->text($contents['payload']['post']['content']) . "</div>"; 
+        echo "<span class='userslug'>User: <strong>" . $contents['payload']['guestCU']['agent'] . "</strong> on " . $date . " says: </span>";
+        echo "<span class='cuPOST'>" . $Parsedown->text($contents['payload']['guestCU']['topic']) . "</span>"; 
         echo "</div>"; 
     } 
 } else { 

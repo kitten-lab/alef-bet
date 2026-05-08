@@ -28,6 +28,20 @@ h1,h2,h3,h4,h5,h6 {
   grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
   gap: 10px; /* Optional: space between items */
 }
+.cuPOST p {
+    background-color: white;
+    margin: 10px;
+    padding: 4px;
+}
+.userslug {
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    border-bottom: solid gray 1px;
+
+}
+.cuPOST p::after, .cuPOST p::before {
+    content: '"';
+}
 
 .tile {
     display: inline-block;

@@ -15,41 +15,8 @@
 // viewport ELEMENT
 // ----------------------------
 
-const viewport = document.getElementById("viewport")
-const input = document.getElementById("input")
-const lastCommandment = [];
-
-const GameState = {
-    Room: "Nothing",
-    Texture: "UNDEFINED"
-    }
-
-const Spaces = {
-  Nothing: {
-    UNDEFINED: { 
-    Think: [ `
-Fuck this shit.
-
-`, `
-I honestly can't anymore.
-
-`
-    ],
-    ThinKEcho: "E C H O   . . . . .",
-    Look: `
-YOU TRY TO LOOK. AT WHAT? WHO KNOWS!  
-    It really doesn't do much. I don't even know why we keep trying. 
-`,
-
-    LookEcho: "E C H O   Mmm. Not promising. Did you try thinking?  ",
-    ErrorMsg: [
-    "E C H O: No, probably not that.",
-    "E C H O: Something tells me this isn't like other games.",
-    "E C H O: Did you try LOOK? These games usually have LOOK.",
-    ]
-    },
-  }
-};
+const viewport = document.getElementById("viewport");
+const input = document.getElementById("input");
 
 // ----------------------------
 // PRINT FUNCTION
@@ -65,10 +32,13 @@ function typeWriter(text, i = 0) {
     } 
 }
 
-function print(text,id) {
+function print(text) {
 
-    viewport.innerHTML += "<span class='print-"+id+"'>" + text + "<span>";
+    viewport.innerHTML += text + "<br>";
         viewport.scrollTop = viewport.scrollHeight;
+
+    // auto-scroll
+    //window.scrollTo(0, document.body.scrollHeight);
 }
 
 // ----------------------------
@@ -89,10 +59,11 @@ print(`
                 C H E S T E R S  T O Y  B O X 
 =================================================================
 
-                   THE FAILURE: TERMINAL PROLOG
-                                v.01
+               THE CROSSING: TERMINAL CONNECTOR
+                           v.01
 
-=================================================================`)
+=================================================================
+`)
 typeWriter(`
 TO BEGIN TYPE 'LAUNCH'`)
 
@@ -175,26 +146,23 @@ const texThoughts = {
 // ----------------------------
 // VERBS
 // ----------------------------
-const GAME = Spaces[GameState.Room][GameState.Texture];
 
-function LetsLook() {
-    print(GAME.Look,"look");
-    typeWriter(GAME.LookEcho);
+function handleLook() {
+
+    print("<div>" + spaces[gameState.room][gameState.texture].description) + "</div>";
+    typeWriter(spaces[gameState.room][gameState.texture].echodescription);
+
 }
 
-function LetsThink() {
+function handleThink() {
   // pick a proper emotional thought
   let randomThought =
-    GAME.Think[Math.floor(Math.random() * GAME.Think.length)];
-    print(randomThought,"think");
-    typeWriter(GAME.ThinKEcho);
+    texThoughts[gameState.room][gameState.texture].thoughts[Math.floor(Math.random() * texThoughts[gameState.room][gameState.texture].thoughts.length)];
+  typeWriter(randomThought);
 }
 
 function handleUnknown() {
-  let randomError =
-    GAME.ErrorMsg[Math.floor(Math.random() * GAME.ErrorMsg.length)];
-    print("You form the shape of sounds: '" + lastCommandment + "'\nNothing happens. Is that even a thing? Maybe you made it up.\n\r");
-    typeWriter(randomError);
+    typeWriter(spaces[gameState.room][gameState.texture].error);
 }
 
 function handleShift() {
@@ -228,9 +196,9 @@ const verbs = {
     LAUNCH: oixLaunch,
     FILL: handleFillUP,
     HELLO: echoHello,
-    LOOK: LetsLook,
+    LOOK: handleLook,
     SHIFT: handleShift,
-    THINK: LetsThink
+    THINK: handleThink
 
 };
 
@@ -242,10 +210,9 @@ function parseInput(text) {
 
     text = text.trim().toUpperCase();
 
-    const words = text.split(";")
+    const words = text.split(" ");
 
     const verb = words[0];
-    const noun = words[1];
 
     if (verbs[verb]) {
 
@@ -263,16 +230,13 @@ function parseInput(text) {
 // INPUT LISTENER
 // ----------------------------
 
-
 input.addEventListener("keydown", function(event) {
 
     if (event.key === "Enter") {
 
         const command = input.value;
 
-        print("<div class='cmd-" + command + "'>>>>" + command + "</div>");
-        lastCommandment.push(command)
-        console.log(lastCommandment);
+        print("<br>>| " + command + "");
 
         parseInput(command);
 

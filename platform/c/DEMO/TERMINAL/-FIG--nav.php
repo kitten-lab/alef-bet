@@ -34,11 +34,14 @@ $nav = [ "navSec" =>
         ]
  ],[ 
         "DOM" => "run", 
-        "BUILDING" => "terminal.root", 
+        "BUILDING" => "run", 
         "KEY" => "home", 
         "ROOMS" => [ [
-                "ROOM" => "REPLAY prolog", 
+                "ROOM" => "terminal.prolog", 
                 "KEY" => "prolog", 
+            ],[
+                "ROOM" => "terminal.connector", 
+                "KEY" => "connector", 
             ],
         ]
  ]
