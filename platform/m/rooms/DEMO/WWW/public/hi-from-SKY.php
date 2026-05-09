@@ -13,13 +13,8 @@ SKY__AUTH(
 );
 
 openSky("SKYLINE WELCOME MAT");
-
-bigHeading("Welcome to home WWW DEMO! You are now on SKYLINE On INTERA.");
-medHeading("THANK YOU FOR JOINING US.");
-
-leaf("Thank you for becoming part of our SIGHT. We CUKRA.");
-leaf("Your first room and key is ready!");
-leaf("<a href='" . b_root . "/DEMO/WWW?find=danyi.com'>CLICK HERE!</a>");
+title("keyMAKER2","title",1);
+getTool("keyMAKER2","MakeKey.DEMO");
 
 closeSky();
 ?>

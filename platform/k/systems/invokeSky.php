@@ -7,12 +7,22 @@ $AND = "<br>";
 include $sonar . 'k/systems/skyInvocations.php';
 
 
-
-function skylite($result) {
-    $GLOBALS['GETS']['set'][] = function() use ($result){
-    echo $result;
+function quickDressing($attribute, $styles){
+    $result = " ." . $attribute . ' {' . $styles . "} \n\r";
+    $GLOBALS['GETS']['dressing'][] = function() use ($result) {
+        echo $result;
+        echo " ";
     };
 }
+
+function skylite($result) {
+$GLOBALS['GETS']['set'][] = function() use ($result){
+    echo $result; 
+};
+    error_log($_SESSION['skyAUTH']);
+        
+}
+
 
 function openSky($title){
     $GLOBALS['pageTitle'] = $title;
@@ -28,7 +38,9 @@ function bigHeading($text){
     h1($text);
 
     }
-
+function makeLink($link,$title){
+    skylite("<a href='$link'>$title</a>");
+}
 
 function getMyID($thing) {
     

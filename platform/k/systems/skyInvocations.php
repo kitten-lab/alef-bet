@@ -19,7 +19,7 @@ function SKY__AUTH(
         $GLOBALS[$SITE]['DOM_DISPLAY'] = $DOM_DISPLAY;
         $GLOBALS[$SITE]['ROOM_SLUG'] = $ROOM_SLUG;
         $GLOBALS[$SITE]['ROOM_DISPLAY'] = $ROOM_DISPLAY;
-        $GLOBALS[$SITE]['ROOM_FLAVOR'] = $ROOM_FLAVOR;
+        $GLOBALS['ROOM_FLAVOR'] = $ROOM_FLAVOR;
 }
 
 function SKY__ROUTE(
@@ -179,19 +179,20 @@ function getDecor(
   // hydrate:
   global $SONAR;
   global $SITE;
+  $URI = $GLOBALS[$SITE]['URI'];
 
 // handle Image Decorations
   if ($Type == "I"){
   // projection pathway:      
-    $SKY_Validate = $SONAR . "m/decor/" . $SITE . "/" . $Projection;
+    $SKY_Validate = $SONAR . "m/decor/" . $URI . "/" . $Projection;
 
     if(is_file($SKY_Validate)) {
       $hasClass = $class ? " class='$class'" : "";
       $hasAltText = $alt ? " class='$alt'" : "";
       if ($shell == "wires") {
-        echo "<img src='" . M_ROUTE . "/decor/$SITE/$Projection' $hasClass $hasAlt>";
+        echo "<img src='" . M_ROUTE . "/decor/$URI/$Projection' $hasClass $hasAlt>";
       } else {
-        skylite("<img src='" . M_ROUTE . "/decor/$SITE/$Projection' $hasClass $hasAlt>");
+        skylite("<img src='" . M_ROUTE . "/decor/$URI/$Projection' $hasClass $hasAlt>");
       }
     
     } else {
@@ -262,6 +263,10 @@ function invokeStyle($css, $function) {
          }
 }
 
+function setGET($setitem) {
+    foreach ($GLOBALS['GETS'][$setitem] as $fn) { echo $fn(); };
+    
+}
 
 function getTool($tool, $function) {
     
