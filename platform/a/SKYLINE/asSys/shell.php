@@ -43,6 +43,17 @@ if (!empty($GETS__SITE['sideNav'])
 </main>
 <?php include 'footer.php'; ?>
 
+
+ 
+<?php foreach ($GLOBALS['GETS']['scripts'] as $fn) {
+    echo $fn();
+} ?>
+
+<script> 
+  const FLAVOR = <?php echo json_encode($GLOBALS[$SITE]['ROOM_FLAVOR']); ?>;
+  document.body.classList = FLAVOR;
+</script>
+
 </body>
 </html>
 <!-- AMEN -->

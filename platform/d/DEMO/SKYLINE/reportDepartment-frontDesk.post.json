@@ -61,7 +61,7 @@
             "post": {
                 "agent": "DEMO-PURPLE",
                 "topic": "MAP TO REPORT OFFICES",
-                "content": "You may explore the REPORT OFFICES by the NAV to your LEFT or by the links below:\r\n\r\n[Oman's Omens](?reportDepartment=omansOmens)\r\n\r\n[Song of Songs](?reportDepartment=songOfSongs)\r\n\r\n[Secrets Known](?reportDepartment=teeHeeSecrets)\r\n"
+                "content": "You may explore the REPORT OFFICES by the NAV to your LEFT or by the links below:\r\n\r\n[Oman's Omens](omansOmens)\r\n\r\n[Song of Songs](songOfSongs)\r\n\r\n[Secrets Known](teeHeeSecrets)\r\n"
             }
         },
         "route": [],

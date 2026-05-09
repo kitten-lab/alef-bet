@@ -74,7 +74,9 @@ box-shadow:
     -.1vh -.1vh 0 #00000066;
 }
 
+.wwwExplorer_linkBar div,
 .wwwExplorer_linkBar a {
+
     display: flex;
     width: 7vw;
     height: 2vh;

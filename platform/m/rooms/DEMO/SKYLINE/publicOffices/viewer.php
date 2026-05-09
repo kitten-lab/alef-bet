@@ -12,11 +12,13 @@ SKY__AUTH(
     /*ROOM_FLAVOR*/  "skyline-standard"
 );
 openSky("SKYLINE NEWS");
-getDecor("I", "LOGO_OM.png","logo");
-title("SKYLINE NEWS! Reporting on the SILO SYSTEM", "header", 1);
-leaf("Reporting on INTERA from INSIDE!");
-medHeading("RECENT NEWS FROM THE SILO");
-getTool("postBASIC","StorePost.DEMO");
 
+
+title("Skyline News Desk", "header", 1);
+medHeading("RECENT NEWS FROM THE SILO");
+getTool("postBASIC","ViewPost");
+
+leaf("--
+Content on this page was ingested with postBASIC and is being displayed in ViewList linking to ViewPost");
 closeSky();
 ?>

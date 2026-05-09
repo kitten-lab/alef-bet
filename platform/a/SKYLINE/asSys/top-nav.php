@@ -13,7 +13,7 @@ $SKY_AUTH = $GLOBALS[$SITE]; ?>
 echo "<span>buildings: </span>";
 foreach ($topnav as $section) {
 echo "<span id='" . $section['DOM'] . "'>"; 
-echo "<a href=" . b_root . '/' . $GLOBALS[$SITE]['URI'] . '?' . $section['DOM'] . '=' . $section['KEY'] . ">";
+echo "<a href=" . b_root . '/' . $GLOBALS[$SITE]['URI'] . '/' . $section['DOM'] . '/' . $section['KEY'] . ">";
 echo $section['BUILDING'] . "</a></span>";
 }
  ?>

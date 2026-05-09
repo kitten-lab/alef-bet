@@ -11,23 +11,24 @@ require_once $GLOBALS['INTERA']['SYSTEM'] . 'shadowENVO.php';
             if ($IS_IT == true) {
                 echo "<div class='sha_env'>shadow mode on</div>";
 }
+global $fetch;
+$id = $fetch;
 
-$id = $_GET['id'];
-$room = $_GET['w'];
+global $room;
+
 
 $SHADOW_PROD_TOGGLE = $sha_env;
 $router_1 = ROUTE('d', $SHADOW_PROD_TOGGLE);
 
 $route = $router_1 . $GLOBALS[$SITE]['URI'] . '/';
-    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $room . '.post.json';    
+    $CHEST = $route . $GLOBALS[$SITE]['DOM_SLUG'] . '-' . $GLOBALS[$SITE]['ROOM_SLUG'] . '.post.json';    
   
-
 $CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
 $Parsedown = new Parsedown();
 
 foreach ($CHEST_THINGS as $TIMBER => $contents) {
     $content = $contents['payload']['post'];
-  if ($id == $contents['tps']['ingest_unix']) {
+  if ($fetch == $contents['tps']['ingest_unix']) {
     echo "<h3>" . $GLOBALS[$SITE]['ROOM_SLUG'] . ' ' . $TIMBER . "</h3><hr>";
     echo "<h2>" . $content['topic'] . "</h2>";
     echo $Parsedown->text($content['content']);

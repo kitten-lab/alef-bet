@@ -1,14 +1,12 @@
 <?php 
 
 $FIG = getFIG("postBASIC", "MakePost"); 
-$user = 'DEMO-' . $GLOBALS['DEMO']['USER'];
-$assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
+global $DEMO;
+$user = 'd.SELF:' . $DEMO['USER'];
+$assistant = 'd.AGENT:' . $DEMO['ASSISTANT'];
 
 ?>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 <form method="POST" action="">
 <span class="">
@@ -48,13 +46,14 @@ $assistant = 'DEMO-' . $GLOBALS['DEMO']['ASSISTANT'];
 </span>
 
 
-<div style="display: grid; grid-template-columns: 4, 1fr; gap: 2px; text-align:left;padding: 4px;">
-ACTING AGENT:
-<input type="radio" id="MRA" name="agent" value="<?= $user; ?>" style="width:25px;">
-<label for="MRA"><?= $user; ?></label>
-<input type="radio" id="ADM" name="agent" value="<?= $assistant; ?>" style="width:25px;">
-<label for="ADM"><?= $assistant; ?></label>
-</div>
+
+<label for="agent"><?= $FIG['Agent']; ?></label><br>
+  <div class="agentRow">
+    <label><input type="radio" id="MRA" name="agent" value="<?= $user; ?>"><?= $user; ?></label>
+    <label><input type="radio" id="ADM" name="agent" value="<?= $assistant; ?>"><?= $assistant; ?></label>
+  </div>
+
+<hr>
 
   <input type="hidden" name="POST__TZ" id="tz-input">
 
@@ -76,6 +75,11 @@ ACTING AGENT:
 <script>
   document.getElementById('tz-input').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 <?php 
 $scripts = (string)$GLOBALS['INTERA']['SYSTEM'];
 include $scripts . 'NIM/DEMOgetTAGGED.php';

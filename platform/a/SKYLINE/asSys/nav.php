@@ -28,7 +28,7 @@ $SKY_AUTH = $GLOBALS[$SITE]; ?>
 
 if ($section['DOM'] == $SKY_AUTH['DOM_SLUG']) {
  foreach ($section['ROOMS'] as $item) {
-echo "<li id='" . $item['KEY'] . "'><a href='" . b_root . '/' . $SKY_AUTH['URI'] . '?' . $section['DOM'] . '=' . $item['KEY'] . "'>";
+echo "<li id='" . $item['KEY'] . "'><a href='" . b_root . '/' . $SKY_AUTH['URI'] . '/' . $section['DOM'] . '/' . $item['KEY'] . "'>";
 echo $item['ROOM'] . "</a></li>";
  }
 }

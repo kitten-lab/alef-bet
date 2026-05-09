@@ -10,7 +10,7 @@ SKY__AUTH(
     /*ROOM_SLUG*/    "teeHeeSecrets", 
     /*MOD_DISPLAY*/  "THE SECRET ROOM",
 
-    /*ROOM_FLAVOR*/  "skyline-standard"
+    /*ROOM_FLAVOR*/  "tee-hee-secrets"
 );
 
 bigHeading("Shh.. secret--! Ah, you again!");
@@ -21,5 +21,5 @@ hr();
 getTool("reportBASIC", "ListReports");
 hr();
 
-getTool("reportBASIC", "DEMOIntakeReport");
+getTool("reportBASIC", "IntakeReport.DEMO");
 closeSky();

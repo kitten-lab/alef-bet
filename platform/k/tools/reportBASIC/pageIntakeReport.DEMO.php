@@ -26,6 +26,7 @@ $assistant = 'D-' . $FIG['assistant'];
         placeholder="<?= $FIG['Topic_plhldr']; ?>" 
         required>
 </span>
+
 <span class="">
     <label for="POST__TIMBER_LEAF"><?= $FIG['Text']; ?></label><br>
     <textarea 
@@ -33,37 +34,31 @@ $assistant = 'D-' . $FIG['assistant'];
     name="POST__TIMBER_LEAF" 
     placeholder="<?= $FIG['Text_plhldr']; ?>" 
     required></textarea>
-    <br>
 </span>
+
 <span class="">
     <label for="POST__TAGS"><?= $FIG['Tags']; ?></label><br>
     <textarea 
     rows="4" cols="30"
     name="POST__TAGS" id="tag-input" placeholder="type your thread..." /></textarea>
 </span>
-<br>
-<br>
+
 <span class="">
     <label for="POST__EVENT_UNIX"><?= $FIG['UNIX']; ?></label><br>
     <input 
         name="POST__EVENT_UNIX" 
         placeholder="<?= $FIG['UNIX_plhldr']; ?>"
         type="number">
-    <br>
 </span>
 
 
-<span style="display: grid; grid-template-columns: auto; gap: 2px; text-align:left;padding: 4px;">
-<div>ACTING AGENT:</div>
-<div>
-<input type="radio" id="MRA" name="agent" value="<?= $user; ?>" style="width:25px;">
-<label for="MRA"><?= $user; ?></label>
-</div>
-<div>
-<input type="radio" id="ADM" name="agent" value="<?= $assistant; ?>" style="width:25px;">
-<label for="ADM"><?= $assistant; ?></label>
-</div>
-</span>
+<label for="agent"><?= $FIG['Agent']; ?></label><br>
+  <div class="agentRow">
+    <label><input type="radio" id="MRA" name="agent" value="<?= $user; ?>"><?= $user; ?></label>
+    <label><input type="radio" id="ADM" name="agent" value="<?= $assistant; ?>"><?= $assistant; ?></label>
+  </div>
+
+<hr>
 
 <span class="">
   <input type="hidden" name="POST__TZ" id="tz-input">
@@ -71,7 +66,8 @@ $assistant = 'D-' . $FIG['assistant'];
   <button type="submit">
     <?= $FIG['Submit_Button'] ?? 'Submit'; ?>
   </button> 
-  <button type="reset">Reset Form</button>
+  <button type="reset"><?= $FIG['Reset_Button'] ?? 'Reset'; ?>
+</button>
 </span>
 
   <span>

@@ -1,9 +1,9 @@
 <?php 
 
-$GLOBALS['c'][$GLOBALS[$SITE]['SYS_SLUG']] = 'c/' . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
-$GLOBALS['a'][$GLOBALS[$SITE]['SYS_SLUG']] = 'a/' . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
-$GLOBALS['c'][$GLOBALS[$SITE]['DOM_SLUG']] = 'c/' . $GLOBALS[$SITE]['DOM_SLUG'] . '/';
-$GLOBALS['b'][$SITE] = 'b/' . $GLOBALS[$SITE] . '/';
+#$GLOBALS['c'][$GLOBALS[$SITE]['SYS_SLUG']] = 'c/' . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
+#$GLOBALS['a'][$GLOBALS[$SITE]['SYS_SLUG']] = 'a/' . $GLOBALS[$SITE]['SYS_SLUG'] . '/';
+#$GLOBALS['c'][$GLOBALS[$SITE]['DOM_SLUG']] = 'c/' . $GLOBALS[$SITE]['DOM_SLUG'] . '/';
+#$GLOBALS['b'][$SITE] = 'b/' . $GLOBALS[$SITE] . '/';
 
 // Resolve the Root Shell (routes to correct shell for the $dom)
 function resolveShell() {

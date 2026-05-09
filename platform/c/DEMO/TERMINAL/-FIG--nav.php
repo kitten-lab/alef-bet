@@ -13,13 +13,13 @@ That's okay. Each time it WILL GET EASIER.  -abl
 --------------------------------------------------------------*/
 $GLOBALS[$SITE]['GETS']['navCall'] = $GLOBALS['SONAR'] . 'a/' . $SITE . '/asSys/nav.php'; 
 
-
 $GLOBALS[$SITE]['tDOM'] = [
                     ["DOM" => "public"],
                     ["DOM" => "run"],
                     ["DOM" => "w"],
                     ];
 $GLOBALS[$SITE]['key'] = "home"; 
+
 
 $nav = [ "navSec" => 
         [ 

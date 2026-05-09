@@ -1,4 +1,5 @@
 <?php 
+global $MATERIAL;
 $GLOBALS['TOOL'] = [
     "SHADOWENVO" => false,
     "NAME" => "postBASIC",
@@ -10,8 +11,8 @@ $GLOBALS['TOOL'] = [
     "SIGFIG" => [
         "skyline-standard" => [
             "MakePost" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => $MATERIAL['USER'],
+                "assistant"         => $MATERIAL['ASSISTANT'],
                 "Topic"             => "Post Topic",
                 "Topic_plhldr"      => "",
                 "Content"           => "Post Content",
@@ -22,6 +23,7 @@ $GLOBALS['TOOL'] = [
                 "UNIX_plhldr"       => "KNOWN U-StampS ONLY",
                 "Confirmation_Msg"  => "POSTED SUCCESSFULLY!",
                 "Submit_Button"     => "Store Post",
+                "link"     => "post-view/",
                 
             ]
         ]

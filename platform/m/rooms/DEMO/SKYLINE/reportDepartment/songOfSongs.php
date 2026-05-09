@@ -22,5 +22,5 @@ hr();
 getTool("reportBASIC", "ListReports");
 hr();
 
-getTool("reportBASIC", "DEMOIntakeReport");
+getTool("reportBASIC", "IntakeReport.DEMO");
 closeSky();

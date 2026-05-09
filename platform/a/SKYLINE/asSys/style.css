@@ -8,6 +8,25 @@
     --accentColor-light: rgb(191, 208, 184);
     --skyFont-family: Zen Dots;
 }
+.tee-hee-secrets {
+  background: linear-gradient(180deg, #ffffff 0%, #ffc6dd 100%);
+}
+body.tee-hee-secrets h1 {
+    font-family: cursive;
+
+}
+body.tee-hee-secrets .MAIN {
+    border: rgba(106, 75, 111, 0.27) solid 1px;
+    font-family: cursive;
+    font-size: 1.2rem;
+  background: linear-gradient(0deg, #ffffff82 0%, #ffffff86 100%);
+}
+body.tee-hee-secrets input,
+body.tee-hee-secrets textarea {
+    background-color: var(--accentColor-light2);
+}
+
+
 body {
     background: var(--backgroundColor);
     margin: 0;
@@ -33,6 +52,12 @@ body {
   pointer-events: none;
 }
 
+.agentRow {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
 h1 {
     font-weight: 300;
@@ -145,6 +170,7 @@ nav li {
   text-decoration: none; /* Removes link underline */
   display: block;        /* Makes the entire area clickable */
   padding: 12px;
+  border: 0;
 }
 
 .SKY_ATTENDANT {

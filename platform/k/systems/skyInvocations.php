@@ -1,53 +1,125 @@
 
 <?php
 
+function SKY__AUTH(
+    $MOD_SLUG, 
+    $MOD_DISPLAY, 
+    $DOM_SLUG, 
+    $DOM_DISPLAY, 
+    $ROOM_SLUG, 
+    $ROOM_DISPLAY,
+    $ROOM_FLAVOR
+    ) {
+        $SITE = $GLOBALS['SITE'];
+        $SURFACE = $GLOBALS[$SITE];
 
-function interraLocation(){
-    $SITE = $GLOBALS['SITE'];
-
-    $CHECK_ROUTE = $GLOBALS['ROUTE']['B']['URI'];
-    if (empty($CHECK_ROUTE)){
-        skylite(openSky("MISSING WORLD"));
-                require resolveShell($GLOBALS[$SITE]['SYS_SLUG']);
-                exit;
-    } else {
-        if ($GLOBALS['ENV'] === 'ROSEWOOD8') {
-            return $GLOBALS['SKY_LOCATION'] = 'b/' . $GLOBALS[$SITE]['URI'];
-        } else {
-            return $GLOBALS['SKY_LOCATION'] = 'http://b.imported.to/' . $GLOBALS[$SITE]['URI'];
-        }
-    }
+        $GLOBALS[$SITE]['MOD_SLUG'] = $MOD_SLUG;
+        $GLOBALS[$SITE]['MOD_DISPLAY'] = $MOD_DISPLAY;
+        $GLOBALS[$SITE]['DOM_SLUG'] = $DOM_SLUG;
+        $GLOBALS[$SITE]['DOM_DISPLAY'] = $DOM_DISPLAY;
+        $GLOBALS[$SITE]['ROOM_SLUG'] = $ROOM_SLUG;
+        $GLOBALS[$SITE]['ROOM_DISPLAY'] = $ROOM_DISPLAY;
+        $GLOBALS[$SITE]['ROOM_FLAVOR'] = $ROOM_FLAVOR;
 }
+
+function SKY__ROUTE(
+    $TO__SYS, 
+    $TO__DOM, 
+    $TO__MOD, 
+    $TO__ROOM
+    ){
+        $GLOBALS['TO']['SYS_SLUG'] = $TO__SYS;
+        $GLOBALS['TO']['DOM_SLUG'] = $TO__DOM;
+        $GLOBALS['TO']['MOD_SLUG'] = $TO__MOD;
+        $GLOBALS['TO']['ROOM_SLUG'] = $TO__ROOM;
+}
+
+// ROUTER FUNCTIONS
+
+function SKY_JUNCTION($letter){
+  global $ENV; 
+    $localJUNCTION = 'http://localhost:9808'; //localhost
+    $globalJUNCTION = 'imported.to'; //live serving centers
+  
+  if ($ENV === "ROSEWOOD8") {
+
+    define($letter . '_root', $localJUNCTION . "/" . $letter);
+    define(strtoupper($letter) . '_ROUTE', $localJUNCTION . "/" . $letter);
+
+  } else {
+
+    define($letter . '_root', 'https://$letter.$globalJUNCTION');
+    define(strtoupper($letter) . '_ROUTE', 'https://$letter.$globalJUNCTION');
+
+  }
+}
+
+function ROUTE(
+  $LETTER, 
+  $SHADOW_PROD_TOGGLE
+  ){
+    return $GLOBALS['SONAR'] . $SHADOW_PROD_TOGGLE . $LETTER . '/'; 
+}
+
+//  simple router without shadow_prod
+function ROUTE_LETTER($LETTER){
+  return $GLOBALS['SONAR'] . $LETTER . '/'; 
+}
+    
+function SKY_AUTO_FAILURE(){
+  skylite(openSky("You are LOST"));
+  skylite(medHeading("There is a room but no key. You can't see any of them."));
+  skylite(leaf("Are you forgetting something?"));
+}
+
+
+function getSkyAUTH($SYSTEM_PATH) {
+  $SITE = $GLOBALS['SITE'];
+  
+  if (!is_dir($SYSTEM_PATH)) {
+    SKY_AUTO_FAILURE();
+  require resolveShell($GLOBALS['SKYLINE']['SYS_SLUG']);
+  exit;
+  } 
+}
+
+
+// the sightsman prepares keys and directs to rooms:
 
 function keyMaker() {
     $SITE = $GLOBALS['SITE'];
+  if (empty($_GET)) {
 
-    if (empty($_GET)) {
-        $uri = trim($_SERVER['REQUEST_URI'], '/');
-        $uri = strtok($uri, '?');
-#        if (str_starts_with($uri, $GLOBALS['SKY_LOCATION'])) {
-#            $uri = substr($uri, strlen($GLOBALS['SKY_LOCATION']));
-#        }
-#        $uri = trim($uri, '/');
-#
-        $segments = explode('/', $uri);
+    global $ENV;
+      if ($ENV === "ROSEWOOD8"){ $localSLUG = "b/"; }
+      else { $localSLUG = ""; }
 
-        if (count($segments) >= 2) {
-            $_GET[$segments[0]] = $segments[1];
-        }
+    $prettyURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-        if (count($segments) == 1) {
-            $doors = $GLOBALS[$SITE]['tDOM'] ?? [];
-            foreach ($doors as $door){
-                if ($segments[0] == $door['DOM']) {
-                    aRoomWithNoKey();
-                    require resolveShell($GLOBALS[$SITE]['SYS_SLUG']);
-                    exit;
-                }
-            }
-        }
+    if (strpos($prettyURI, $localSLUG) !== false) {    
+      $parseForROSEWOOD = str_replace($localSLUG, '', $prettyURI);
+      $parsed = trim($parseForROSEWOOD);
     }
+
+    if (strpos($prettyURI, $GLOBALS[$SITE]['URI']) !== false) {    
+      $parseForPUBLIC = str_replace($GLOBALS[$SITE]['URI'] . "/", '', $parsed);
+      $reparsed = trim($parseForPUBLIC);
+    }
+
+    $uriFRAGS = explode('/', $reparsed);
+    
+    global $room;
+      $room = $uriFRAGS[1];
+      $key = $uriFRAGS[2];
+
+    global $fetch;
+      $fetch = $uriFRAGS[3];
+
+        $_GET[$room] = $key;
+  }
 }
+
+
 
 function lockAndKey(){  
     $SITE = $GLOBALS['SITE'];
@@ -87,78 +159,85 @@ function lockAndKey(){
     require resolveShell($GLOBALS[$SITE]['SYS_SLUG']);
 }
 
+function interraLocation(){
+    // retired, remove from known usage locations
+}
+
 
 function getFIG($TOOL, $FUNCTION){
-$SITE = $GLOBALS['SITE'];
-$THEME = $GLOBALS[$SITE]["ROOM_FLAVOR"];
-return $GLOBALS['TOOL']['SIGFIG'][$THEME][$FUNCTION]; 
-include __DIR__ . '/-SIG-' . $TOOL . '.php'; // ASSISTANT SETTINGS
+    $SITE = $GLOBALS['SITE'];
+    $THEME = $GLOBALS[$SITE]["ROOM_FLAVOR"];
+    return $GLOBALS['TOOL']['SIGFIG'][$THEME][$FUNCTION]; 
 }
 
 
-// ROUTER FUNCTIONS
-function ROUTE($LETTER, $SHADOW_PROD_TOGGLE){
-    return $GLOBALS['SONAR'] . $SHADOW_PROD_TOGGLE . $LETTER . '/'; 
-    }
+// projectIMG for loading images in SKYLITE //
+function getDecor(
+  /* required */  string $Type, string $Projection, 
+  /* optional */  ?string $shell = null, ?string $class = null, ?string $alt = null
+){
+  // hydrate:
+  global $SONAR;
+  global $SITE;
 
+// handle Image Decorations
+  if ($Type == "I"){
+  // projection pathway:      
+    $SKY_Validate = $SONAR . "m/decor/" . $SITE . "/" . $Projection;
 
-function ROUTE_LETTER($LETTER){
-    return $GLOBALS['SONAR'] . $LETTER . '/'; 
-    }
+    if(is_file($SKY_Validate)) {
+      $hasClass = $class ? " class='$class'" : "";
+      $hasAltText = $alt ? " class='$alt'" : "";
+      if ($shell == "wires") {
+        echo "<img src='" . M_ROUTE . "/decor/$SITE/$Projection' $hasClass $hasAlt>";
+      } else {
+        skylite("<img src='" . M_ROUTE . "/decor/$SITE/$Projection' $hasClass $hasAlt>");
+      }
     
-
-function SKY_AUTO_FAILURE(){
-    skylite(openSky("You are LOST"));
-    skylite(medHeading("There is a room but no key. You can't see any of them."));
-    skylite(leaf("Are you forgetting something?"));
-}
-
-function getSkyAUTH($SYSTEM_PATH) {
-    $SITE = $GLOBALS['SITE'];
-    if (!is_dir($SYSTEM_PATH)) {
-    SKY_AUTO_FAILURE();
-    require resolveShell($GLOBALS[$SITE]['SYS']);
-    exit;
-} }
-
-
-
-
-function skylite($result) {
-    $GLOBALS['GETS']['set'][] = function() use ($result){
-    echo $result;
-    };
+    } else {
+    
+      error_log("KDE! Image $Projection not found in $SKY_Validate");
+      if ($shell == "wires") {
+        echo "<span class='MissingProjection'></span>";
+      } else {
+        skylite("<span class='MissingProjection'></span>");
+      }
+    }
+  }
 }
 
 
-function getImg($img, $alt = '',$class = '') {
-    $SITE = $GLOBALS['SITE'];
 
-    $path = "/" . $GLOBALS[$SITE]['SYS_SLUG'] . '/' . $GLOBALS[$SITE]['DOM_SLUG'] . "/" . $img;
-    $result = $GLOBALS['SONAR'] . "/i/" . $path;
-    if (is_file($result)) {
-        $hasClass = $class ? " class='$class'" : "";
-        $hasAlt = $alt ? " alt='$alt'" : "";
-        
-        skylite("<img $hasClass src='" . i_root . "$path' $hasAlt>"); 
 
-        } else {
-            error_log("KDE! IMAGE file not found. " . $result);         
-        }
-}
+// OLDER IMAGE LOADERS - PHASING OUT //
+    function getImg($img, $alt = '',$class = '') {
+        $SITE = $GLOBALS['SITE'];
 
-function img($img, $folder, $prefix, $alt = '',$class = '') {
-    $path = "/" . $folder . "/" . $prefix . "_" . $img;
-    $result = $GLOBALS['SONAR'] . "/i/" . $path;
-    if (is_file($result)) {
-        $hasClass = $class ? " class='$class'" : "";
-        $hasAlt = $alt ? " alt='$alt'" : "";
+        $path = "/" . $GLOBALS[$SITE]['SYS_SLUG'] . '/' . $GLOBALS[$SITE]['DOM_SLUG'] . "/" . $img;
+        $result = $GLOBALS['SONAR'] . "/i/" . $path;
+        if (is_file($result)) {
+            $hasClass = $class ? " class='$class'" : "";
+            $hasAlt = $alt ? " alt='$alt'" : "";
+            
+            skylite("<img $hasClass src='" . i_root . "$path' $hasAlt>"); 
 
-         echo "<img $hasClass src='" . i_root . "$path' $hasAlt>"; 
-         } else {
-            error_log("KDE! IMAGE file not found. " . $result);         
-         }
-}
+            } else {
+                error_log("KDE! IMAGE file not found. " . $result);         
+            }
+    }
+
+    function img($img, $folder, $prefix, $alt = '',$class = '') {
+        $path = "/" . $folder . "/" . $prefix . "_" . $img;
+        $result = $GLOBALS['SONAR'] . "/i/" . $path;
+        if (is_file($result)) {
+            $hasClass = $class ? " class='$class'" : "";
+            $hasAlt = $alt ? " alt='$alt'" : "";
+
+            echo "<img $hasClass src='" . i_root . "$path' $hasAlt>"; 
+            } else {
+                error_log("KDE! IMAGE file not found. " . $result);         
+            }
+    }
 
 function getA_Style($css, $folder, $function) {
     $path = "/" . $folder . "/" . $function . "/" . $css . ".css";
@@ -183,8 +262,34 @@ function invokeStyle($css, $function) {
          }
 }
 
-function loadTool($tool, $type, $function) {
 
+function getTool($tool, $function) {
+    
+    $GLOBALS['GETS']['set'][] = function() use ($tool, $function) { 
+        $file = $GLOBALS['SONAR'] . "k/tools/" . $tool . "/page" . $function . ".php";
+        if (is_file($file)) {
+        loadTool($tool, "page", $function);
+        }
+    };
+    $GLOBALS['GETS']['actor'][] = function() use ($tool, $function) {
+        $file = $GLOBALS['SONAR'] . "k/tools/" . $tool . "/actor" . $function . ".php";
+        if (is_file($file)) {
+        loadTool($tool, "actor", $function);
+        }
+    };
+    $GLOBALS['GETS']['scripts'][] = function() use ($tool, $function) {
+        $file = $GLOBALS['SONAR'] . "k/tools/" . $tool . "/script" . $function . ".php";
+        if (is_file($file)) {
+        loadTool($tool, "script", $function);
+        }
+    };
+    $GLOBALS['GETS']['dressing'][] = function() use ($tool) {
+        loadTool_Style($tool);
+    };
+}
+
+
+function loadTool($tool, $type, $function) {
     $result = $GLOBALS['SONAR'] . $GLOBALS['ktool'] . $tool . '/' . $type . $function . '.php';
     if (is_file($result)) {
         include $result;
@@ -205,60 +310,5 @@ function loadTool_Style($tool) {
 }
 
 
-
-
-function summonTool($tool, $function) {
-    
-    $GLOBALS['GETS']['set'][] = function() use ($tool, $function) { 
-        loadTool($tool, "page", $function);
-    };
-    $GLOBALS['GETS']['actor'][] = function() use ($tool, $function) {
-        loadTool($tool, "actor", $function);
-    };
-    $GLOBALS['GETS']['dressing'][] = function() use ($tool) {
-        loadTool_Style($tool);
-    };
-}
-
-
-
-
-
-function youAreHere(){
-    $SITE = $GLOBALS['SITE'];
-
-    $CHECK_ROUTE = $GLOBALS['ROUTE']['B']['URI'];
-    if (empty($CHECK_ROUTE)){
-        skylite(openSky("MISSING WORLD"));
-                require resolveShell($sys);
-                exit;
-    } else {
-        return $GLOBALS['SKY_LOCATION'] = 'b/' . $GLOBALS[$SITE]['URI'];
-    }
-}
-
-
-
-
-
-
-function getTool($tool, $function) {
-    
-    $GLOBALS['GETS']['set'][] = function() use ($tool, $function) { 
-        $file = $GLOBALS['SONAR'] . "k/tools/" . $tool . "/page" . $function . ".php";
-        if (is_file($file)) {
-        loadTool($tool, "page", $function);
-        }
-    };
-    $GLOBALS['GETS']['actor'][] = function() use ($tool, $function) {
-        $file = $GLOBALS['SONAR'] . "k/tools/" . $tool . "/actor" . $function . ".php";
-        if (is_file($file)) {
-        loadTool($tool, "actor", $function);
-        }
-    };
-    $GLOBALS['GETS']['dressing'][] = function() use ($tool) {
-        loadTool_Style($tool);
-    };
-}
 
 ?>

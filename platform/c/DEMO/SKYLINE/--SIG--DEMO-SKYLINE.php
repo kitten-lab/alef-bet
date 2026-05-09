@@ -3,7 +3,7 @@
 ================================================================
 >| Do not forget me. */ $loversMark = "theSKY"; 
 
-    include __DIR__ . '/-FIG-omansOmens.php';
+    require __DIR__ . '/--SIG-FIGS--.php';
     include __DIR__ . '/-FIG--nav.php';
     include __DIR__ . "/-FIG--routeErrors.php"; 
     

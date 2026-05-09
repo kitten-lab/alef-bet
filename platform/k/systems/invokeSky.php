@@ -7,33 +7,37 @@ $AND = "<br>";
 include $sonar . 'k/systems/skyInvocations.php';
 
 
-function SKY__AUTH($MOD_SLUG, $MOD_DISPLAY, $DOM_SLUG, $DOM_DISPLAY, $ROOM_SLUG, $ROOM_DISPLAY,$ROOM_FLAVOR) {
-    $SITE = $GLOBALS['SITE'];
-    $GLOBALS[$SITE]['MOD_SLUG'] = $MOD_SLUG;
-    $GLOBALS[$SITE]['MOD_DISPLAY'] = $MOD_DISPLAY;
-    $GLOBALS[$SITE]['DOM_SLUG'] = $DOM_SLUG;
-    $GLOBALS[$SITE]['DOM_DISPLAY'] = $DOM_DISPLAY;
-    $GLOBALS[$SITE]['ROOM_SLUG'] = $ROOM_SLUG;
-    $GLOBALS[$SITE]['ROOM_DISPLAY'] = $ROOM_DISPLAY;
-    $GLOBALS[$SITE]['ROOM_FLAVOR'] = $ROOM_FLAVOR;
-}
 
-function SKY__ROUTE($TO__SYS, $TO__DOM, $TO__MOD, $TO__ROOM){
-    $GLOBALS['TO']['SYS_SLUG'] = $TO__SYS;
-    $GLOBALS['TO']['DOM_SLUG'] = $TO__DOM;
-    $GLOBALS['TO']['MOD_SLUG'] = $TO__MOD;
-    $GLOBALS['TO']['ROOM_SLUG'] = $TO__ROOM;
+function skylite($result) {
+    $GLOBALS['GETS']['set'][] = function() use ($result){
+    echo $result;
+    };
 }
 
 function openSky($title){
     $GLOBALS['pageTitle'] = $title;
 
 }
-function bigHeading($text){
+
+function h1($text){
     $text = htmlspecialchars($text);
     skylite("<h1>$text</h1>");
+}
+
+function bigHeading($text){
+    h1($text);
+
     }
 
+
+function getMyID($thing) {
+    
+  $SITE = $GLOBALS['SITE'];
+    $thing = strtoupper($thing);
+    $YourThing = $GLOBALS[$SITE][$thing];
+
+    return $YourThing;
+}
 
 function title($text,$id,$hscale){
     $text = htmlspecialchars($text);
