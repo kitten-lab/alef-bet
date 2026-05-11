@@ -32,8 +32,11 @@ foreach ($CHEST_THINGS as $TIMBER => $contents) {
     echo "<h3>" . $GLOBALS[$SITE]['ROOM_SLUG'] . ' ' . $TIMBER . "</h3><hr>";
     echo "<h2>" . $content['topic'] . "</h2>";
     echo $Parsedown->text($content['content']);
+    $thecontents = $content;
   }
 }
 
+
 echo '<br><a href="javascript:history.go(-1)" title="Return to previous page">« Go back</a>';
 ?>
+

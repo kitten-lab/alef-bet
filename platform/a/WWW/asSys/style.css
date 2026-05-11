@@ -100,28 +100,8 @@ font-size: 3vh;
 padding:.6vh;
 background: black;
 overflow-x: scroll; /* Keeps screen content inside */
-scrollbar-width: 5vw;
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 4vh;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f145; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: gray; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: gray; 
-}
 
 h1, h2, h3, h4, h5, h6 {
     margin: 3px;

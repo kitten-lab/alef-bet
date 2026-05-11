@@ -1,26 +1,21 @@
+<!-- insert php actors -->
 <?php $GETS__SITE = $GLOBALS[$SITE]['GETS']; ?>
-<?php foreach ($GLOBALS['GETS']['actor'] as $fn) 
-    { echo $fn(); } 
-
-$SITE = $GLOBALS['SITE'];
-?>
-
-<!-- .... DEAR INFINITE POTENTIAL, HOLY DOCTYPE... -->
+<?php setGET("actor"); ?>
+<!-- BEGIN THE OPENING PRAYER OF PRODUCTION -->
 <!DOCTYPE html>
-<html><head>
-
-<?php 
-if ($GLOBALS['shadowENVO'] == true) {
-        echo '<div>SHADOW MODE</div>';
-}
-foreach ($GLOBALS['GETS']['dressing'] as $fn) {
-    echo $fn();
-} ?>
-<?php getMy_Styles(); ?>
-<title><?= $GLOBALS['pageTitle'] ?></title>
-
-</head>
-<!-- END OPENING PRAYERS -->
+  <html><head>
+    <title><?= $GLOBALS['pageTitle'] ?></title>
+    <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
+      <!-- insert getMyStyles(); -->
+        <?php getMy_Styles() ?>
+        <?php setGET("dressing"); ?>
+      <!-- insert page generated styles -->
+      <style>
+        <?php setGET("quickDress"); ?>
+      </style>
+  </head>
+  <body>
+  <!-- END OPENING PRAYERS -->
 <body>
 
 <?php include 'header.php'; ?>
@@ -35,24 +30,20 @@ if (!empty($GETS__SITE['sideNav'])
 ?>
 </div>
 <div class="MAIN">
+    <?php setGET("set"); ?>
 
-<?php foreach ($GLOBALS['GETS']['set'] as $fn) {
-    echo $fn();
-} ?>
 </div>
 </main>
 <?php include 'footer.php'; ?>
 
 
- 
-<?php foreach ($GLOBALS['GETS']['scripts'] as $fn) {
-    echo $fn();
-} ?>
-
-<script> 
-  const FLAVOR = <?php echo json_encode($GLOBALS[$SITE]['ROOM_FLAVOR']); ?>;
-  document.body.classList = FLAVOR;
-</script>
+  <?php 
+    callKitten("siloGreeting");
+    callKitten("roomTEXTURE");
+  ?>
+<script> console.log("%cLAUNCHING THE SILO.....","background-color:blue;padding:10px;font-weight:600"); </script>
+  
+    <?php setGET("scripts"); ?>
 
 </body>
 </html>

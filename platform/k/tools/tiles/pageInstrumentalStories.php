@@ -11,7 +11,7 @@
 </div>
   <div class="column" style="text-align: right;">
   <button class="spin" onclick="spin()">PLAY</button>
-<button class="audio" onclick="Invoke Tone.start()">ACTIVATE SOUND</button>
+<button class="audio" onclick="Tone.start()">ACTIVATE SOUND</button>
 </div>
 </div>
 
@@ -36,8 +36,29 @@
 
 </section>
 
-<script src="https://unpkg.com/tone"></script>
+<script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.min.js"></script>
+
 <script>
+
+ 
+let synth;
+
+async function playSound() {
+    await Tone.start();
+    if (!synth) {
+        synth = new Tone.PolySynth(Tone.Synth, {
+            maxPolyphony: 8,
+            oscillator: { frequency: 440, type: "sawtooth6" },
+            envelope: {
+                attack: 3,
+                decay: 0.5,
+                sustain: 0.05,
+                release: 1
+            }
+        }).toDestination();
+    }
+}
+
 const symbols = ["SP", "HP1", "HP2", "MP1", "MP2", "MP3", "LP1",  "LP2", "LP3", "LP4", ]
 const atmosphere = [
     "Rain pounds outside.",
@@ -46,25 +67,9 @@ const atmosphere = [
 ]
 
 const scale = [
-"C3","D3","E3","F3","G3","A3","B3", 
-"C5","D5","E5","F5","G5","A5","B5", "C7"
+"C4","D5","E4","F5","G4","A5","B4", 
+"C5","D4","E5","F4","G5","A4","B5", "C6"
 ]
-
-const synth = new Tone.PolySynth(Tone.Synth, {
-  oscillator: { frequency: 440, type: "sawtooth6" },
-  envelope: {
-    attack: 0.5,
-    decay: 0,
-    sustain: 0.8,
-    release: 2
-    }
-}).toDestination();
-
-const reverb = new Tone.Reverb({
-  decay: 2
-    }).toDestination();
-
-  synth.connect(reverb);
 
 const cases = [
   {
@@ -132,13 +137,31 @@ const cases = [
   }
 ]
 
+
+
 document.getElementById("case").innerText = "The Office"
 
 let currentCase = null
 let clueIndex = 0
-spin();
+
+function deadSpin() {
+ // render 5x3 grid
+  let output = ""
+  for (let i = 0; i < 15; i++) {
+    let rand = Math.floor(Math.random() * symbols.length)
+    output += "<div id='" + last_spin + "' class='tile " + symbols[rand] + "' data-index='" + i + "'>" + symbols[rand] + "</div>"
+    //if ((i + 1) % 5 === 0) output += "<br>"
+  }
+  document.getElementById("reels").innerHTML = output
+}
+
+deadSpin();
+
 
 function spin() {
+
+playSound();
+
   // render 5x3 grid
   let output = ""
   let all_spins = []
@@ -150,7 +173,6 @@ function spin() {
     //if ((i + 1) % 5 === 0) output += "<br>"
   }
   document.getElementById("reels").innerHTML = output
-  console.log(all_spins);
   
   let counts = {}
 
@@ -164,7 +186,6 @@ function spin() {
   }
 
 
-  console.log(counts)
   let result = []
 
   for (let symbol in counts) {
@@ -178,7 +199,6 @@ function spin() {
         }
     }
   
-  console.log(result)
   
 
   if (result.length > 0) {
@@ -192,14 +212,11 @@ function spin() {
     const index = parseInt(el.dataset.index);
     notes.push(scale[index]);
     });
-
+    
   if (notes.length > 0) {
-    notes.forEach((note, i) => {
-      setTimeout(() => {
-      synth.triggerAttackRelease(notes, "8n");
-      }, i * 120);
-      });
+      synth.triggerAttackRelease(notes, "3n");
   }
+
 
    if (!currentCase) {
       currentCase = cases[Math.floor(Math.random() * cases.length)]
@@ -246,9 +263,10 @@ function spin() {
     clue_count++
     
     } else {
-      document.getElementById("clue").innerText = ""
+      document.getElementById("case").innerHTML = ""
+      
       currentCase = null
-      currentCase = cases[Math.floor(Math.random() * cases.length)]
+      currentCase = cases[Math.floor(Math.random() * cases.length)];
 
       clue_count = 1
       clueIndex = 0

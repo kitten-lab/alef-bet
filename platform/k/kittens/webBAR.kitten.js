@@ -1,4 +1,3 @@
-<script>
 document.getElementById("wwwBar").innerHTML = window.location.pathname
 function WWWBack(){ javascript:history.go(-1) }
 function WWWForward(){ javascript:history.go(1) }
@@ -15,10 +14,10 @@ wwwBAR.addEventListener('input', () => {
 });
 
 wwwBAR.addEventListener("keydown", function(event) {
-  // Check if the key pressed was "Enter"
   if (event.key === "Enter") {
-    event.preventDefault(); // Prevents default behavior like scrolling
+    event.preventDefault(); 
     LetsGO();
   }
 });
-</script>
+
+   console.log("%cMEOW MEOW! WWWBar IS ACTIVATE", "color:pink");

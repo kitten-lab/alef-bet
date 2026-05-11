@@ -1,4 +1,3 @@
-
 <!-- insert php actors -->
 <?php setGET("actor"); ?>
 <!-- BEGIN THE OPENING PRAYER OF PRODUCTION -->
@@ -8,10 +7,11 @@
     <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
       <!-- insert getMyStyles(); -->
         <?php getMy_Styles() ?>
+        <?php setGET("dressing"); ?>
       <!-- insert page generated styles -->
-        <style>
-          <?php setGET("dressing"); ?>
-        </style>
+      <style>
+        <?php setGET("quickDress"); ?>
+      </style>
   </head>
   <body>
   <!-- END OPENING PRAYERS -->
@@ -38,13 +38,14 @@
     <?php setGET("set"); ?>
   </main>
 </div>
-
-
+</div>
   <?php 
-    getTool("scriptKITTY", "WebBar"); 
-    getTool("scriptKITTY", "flavorROOM"); 
+    callKitten("siloGreeting");
+    callKitten("webBAR");
+    callKitten("roomTEXTURE");
   ?>
-
+<script> console.log("%cLAUNCHING THE SILO.....","background-color:blue;padding:10px;font-weight:600"); </script>
+  
     <?php setGET("scripts"); ?>
 </body>
 </html>

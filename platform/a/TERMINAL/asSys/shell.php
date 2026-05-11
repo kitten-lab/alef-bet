@@ -1,23 +1,21 @@
 
-<?php 
-
-foreach ($GLOBALS['GETS']['actor'] as $fn) {
-    echo $fn();
-} ?>
-    <!DOCTYPE html>
-    <html><head>
+<!-- insert php actors -->
+<?php setGET("actor"); ?>
+<!-- BEGIN THE OPENING PRAYER OF PRODUCTION -->
+<!DOCTYPE html>
+  <html><head>
     <title><?= $GLOBALS['pageTitle'] ?></title>
     <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
-   <?php 
-foreach ($GLOBALS['GETS']['dressing'] as $fn) {
-    echo $fn();
-} ?>
-<?php getMy_Styles(); ?>
-    <style>
-    </style>
-    </head>
-    <body>
-<!-- END OPENING PRAYERS -->
+      <!-- insert getMyStyles(); -->
+        <?php getMy_Styles() ?>
+        <?php setGET("dressing"); ?>
+      <!-- insert page generated styles -->
+      <style>
+        <?php setGET("quickDress"); ?>
+      </style>
+  </head>
+  <body>
+  <!-- END OPENING PRAYERS -->
 
 <div class="monitor-container">
 <div class="monitor-interior">
@@ -33,9 +31,7 @@ if (!empty($GLOBALS[$SITE]['GETS']['navCall']) && file_exists($GLOBALS[$SITE]['G
 <main class="iox_coreContents">
 <div class="broken_header">
 </div>
-<?php foreach ($GLOBALS['GETS']['set'] as $fn) {
-    echo $fn();
-} ?>
+    <?php setGET("set"); ?>
 
 
 
@@ -52,6 +48,12 @@ if (!empty($GLOBALS[$SITE]['GETS']['navCall']) && file_exists($GLOBALS[$SITE]['G
     <div class="computer_face pole2">O</div>
   </div>
 </div>
+  <?php 
+    callKitten("webBAR");
+    callKitten("roomTEXTURE");
+  ?>
+  
+    <?php setGET("scripts"); ?>
 
 </body>
 </html>

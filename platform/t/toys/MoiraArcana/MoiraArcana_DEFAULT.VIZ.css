@@ -1,0 +1,24 @@
+
+#CardDraw {
+  white-space: pre-line;
+}
+#AppContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px; /* Optional: limits width for readability on large screens */
+  margin: 0 auto;    /* Centers the container if a max-width is set */
+  padding: 20px;
+  border: 1px solid white;
+  box-sizing: border-box;
+  aspect-ratio: 16/9;
+  container-type: inline-size;
+}
+
+#App {
+  font-size: 4cqw;
+}
+
+.gameBtn {
+  width: auto;
+  font-size: 2cqw
+}

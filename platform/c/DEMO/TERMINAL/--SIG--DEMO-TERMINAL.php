@@ -11,7 +11,7 @@
         getA_Style("style", $GLOBALS[$SITE]['SYS'], "asSys");
         getA_Style("sky",   $GLOBALS[$SITE]['SYS'], "asSys");
         getA_Style("fonts", $GLOBALS[$SITE]['SYS'], "asSys");
-        getA_Style("style", $GLOBALS[$SITE]['DOM'], "asDom");
+        getA_Style("style", $GLOBALS[$SITE]['URI'], "asDom");
 
     }
 ?>

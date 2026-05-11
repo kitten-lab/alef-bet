@@ -16,7 +16,10 @@ That's okay. Each time it WILL GET EASIER.  -abl
 $GLOBALS[$SITE]['tDOM'] = [
     ["DOM" => "public"],
     ["DOM" => "danyi"],
+    ["DOM" => "EXE-708"],
     ["DOM" => "go"],
+    ['DOM' => "apps"],
+    ['DOM' => "games"],
     ['DOM' => "private"],
     ["DOM" => "w"],
     ];

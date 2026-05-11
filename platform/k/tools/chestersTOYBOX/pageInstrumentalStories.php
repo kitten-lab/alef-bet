@@ -139,7 +139,6 @@ let clueIndex = 0
 spin();
 
 function spin() {
-  // render 5x3 grid
   let output = ""
   let all_spins = []
   for (let i = 0; i < 15; i++) {
@@ -147,7 +146,6 @@ function spin() {
     last_spin = symbols[rand]
     all_spins.push(last_spin)
     output += "<div id='" + last_spin + "' class='tile " + last_spin + "' data-index='" + i + "'>" + last_spin + "</div>"
-    //if ((i + 1) % 5 === 0) output += "<br>"
   }
   document.getElementById("reels").innerHTML = output
   console.log(all_spins);

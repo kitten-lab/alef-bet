@@ -7,9 +7,9 @@ let TAGS = {
 
 // 🔹 Load all three files
 $.when(
-  $.getJSON('/DEMO/_DEWEY/catalogs/a-node.tag.catalog.json'),
-  $.getJSON('/DEMO/_DEWEY/catalogs/b-node.tag.catalog.json'),
-  $.getJSON('/DEMO/_DEWEY/catalogs/c-node.tag.catalog.json')
+  $.getJSON('/d/DEMO/_DEWEY/catalogs/a-node.tag.catalog.json'),
+  $.getJSON('/d/DEMO/_DEWEY/catalogs/b-node.tag.catalog.json'),
+  $.getJSON('/d/DEMO/_DEWEY/catalogs/c-node.tag.catalog.json')
 ).done(function(aData, bData, cData) {
 
   TAGS.a = Object.keys(aData[0]["a-node"] || {});

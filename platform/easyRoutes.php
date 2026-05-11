@@ -12,6 +12,8 @@ $GLOBALS['INTERA']['SYSTEM'] = $GLOBALS['SONAR'] . 'k/systems/';
 $GLOBALS['INTERA']['TOOLS'] = $GLOBALS['SONAR'] . 'k/tools/';
 $GLOBALS['INTERA']['CONFIG'] = $GLOBALS['SONAR'] . 'k/configs/';
 
+$GLOBALS['ENVOXOR'] = $GLOBALS['SONAR'] . 'k/systems/ENVOXOR/';
+
 
 $GLOBALS['GETS'] = [
     "actor" => [],

@@ -1,32 +1,18 @@
 <?php 
-$center = "alignCenter";
-$left = "alignLeft";
-$right = "alignRight";
-$AND = "<br>";
-
-include $sonar . 'k/systems/skyInvocations.php';
+include $SONAR . 'k/systems/skyInvocations.php';
+include $SONAR . 'k/systems/wireWORDS.php';
+include $SONAR . 'k/systems/ENVOXOR/skyLINES.php';
 
 
-function quickDressing($attribute, $styles){
-    $result = " ." . $attribute . ' {' . $styles . "} \n\r";
-    $GLOBALS['GETS']['dressing'][] = function() use ($result) {
-        echo $result;
-        echo " ";
-    };
-}
+
+
 
 function skylite($result) {
-$GLOBALS['GETS']['set'][] = function() use ($result){
-    echo $result; 
-};
-    error_log($_SESSION['skyAUTH']);
-        
+  getFILLER($result, "set");
 }
 
-
 function openSky($title){
-    $GLOBALS['pageTitle'] = $title;
-
+  $GLOBALS['pageTitle'] = $title;
 }
 
 function h1($text){
